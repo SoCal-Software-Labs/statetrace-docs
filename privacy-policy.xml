@@ -1,0 +1,1334 @@
+<?xml version="1.0"?>
+<root ptr="0x55bf1b6c37a0" id="1028" symbol="11SwRootFrame" lower="1029">
+ <sfxViewShells>
+  <SwView>
+   <SfxViewShell ptr="0x55bf1b35a2b0" id="5"/>
+   <SwCursorShell>
+    <SwViewShell/>
+    <m_pCurrentCursor>
+     <SwPaM>
+      <point>
+       <SwPosition nNode="100" nContent="171"/>
+      </point>
+     </SwPaM>
+    </m_pCurrentCursor>
+   </SwCursorShell>
+  </SwView>
+ </sfxViewShells>
+ <infos>
+  <bounds left="284" top="284" width="41161" height="96460" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+  <prtBounds left="0" top="0" width="41161" height="96460"/>
+ </infos>
+ <page ptr="0x55bf1a2b27b0" id="1029" symbol="11SwPageFrame" next="1059" upper="1028" lower="1030">
+  <page_status ValidFlyLayout="true" ValidFlyContent="true" ValidFlyInCnt="true" ValidLayout="true" ValidContent="true"/>
+  <infos>
+   <bounds left="29205" top="284" width="12240" height="15840" mbFixSize="true" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+   <prtBounds left="1440" top="1440" width="9360" height="13680"/>
+  </infos>
+  <body ptr="0x55bf1b305d50" id="1030" symbol="11SwBodyFrame" next="1031" upper="1029" lower="1033">
+   <infos>
+    <bounds left="30645" top="1724" width="9360" height="12960" mbFixSize="true" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+    <prtBounds left="0" top="0" width="9360" height="12960"/>
+   </infos>
+   <txt ptr="0x55bf1b328110" id="1033" symbol="11SwTextFrame" next="1034" upper="1030" txtNodeIndex="18" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="1724" width="9360" height="488" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="368"/>
+    </infos>
+Website Privacy Policy    <Special nLength="0" nType="PortionType::Margin" rText="" nWidth="3108"/>
+    <Text nLength="22" nType="PortionType::Text" nHeight="368" nWidth="3145" Portion="Website Privacy Policy"/>
+    <Special nLength="0" nType="PortionType::Margin" rText="" nWidth="3108"/>
+    <LineBreak nWidth="9361" Line="Website Privacy Policy"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b65a580" id="1034" symbol="11SwTextFrame" next="1035" prev="1033" upper="1030" txtNodeIndex="19" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="2212" width="9360" height="516" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="240" width="9360" height="276"/>
+    </infos>
+Last modified: Nov 9, 2021    <Text nLength="15" nType="PortionType::Text" nHeight="276" nWidth="1466" Portion="Last modified: "/>
+    <Text nLength="11" nType="PortionType::Text" nHeight="276" nWidth="1193" Portion="Nov 9, 2021"/>
+    <LineBreak nWidth="2659" Line="Last modified: Nov 9, 2021"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b644670" id="1035" symbol="11SwTextFrame" next="1036" prev="1034" upper="1030" txtNodeIndex="20" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="2728" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+Introduction    <Text nLength="12" nType="PortionType::Para" nHeight="276" nWidth="1307" Portion="Introduction"/>
+    <LineBreak nWidth="1307" Line="Introduction"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf171f7620" id="1036" symbol="11SwTextFrame" next="1037" prev="1035" upper="1030" txtNodeIndex="21" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="3124" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="552"/>
+    </infos>
+Soutehern California Software Labs,  LCC (&quot;Company&quot; or &quot;We&quot;) respect your privacy and are committed to protecting it through our compliance with this policy.    <Text nLength="41" nType="PortionType::Text" nHeight="276" nWidth="4166" Portion="Soutehern California Software Labs,  LCC "/>
+    <Text nLength="1" nType="PortionType::Text" nHeight="276" nWidth="80" Portion="("/>
+    <Text nLength="9" nType="PortionType::Text" nHeight="276" nWidth="1267" Portion="&quot;Company&quot;"/>
+    <Text nLength="3" nType="PortionType::Text" nHeight="276" nWidth="260" Portion=" or"/>
+    <Special nLength="1" nType="PortionType::Blank" rText="&#xA0;"/>
+    <Text nLength="4" nType="PortionType::Text" nHeight="276" nWidth="613" Portion="&quot;We&quot;"/>
+    <Text nLength="30" nType="PortionType::Text" nHeight="276" nWidth="2859" Portion=") respect your privacy and are"/>
+    <Text nLength="1" nType="PortionType::Hole" Portion=" "/>
+    <LineBreak nWidth="9305" Line="Soutehern California Software Labs,  LCC (&quot;Company&quot; or&#xA0;&quot;We&quot;) respect your privacy and are "/>
+    <Text nLength="67" nType="PortionType::Lay" nHeight="276" nWidth="6465" Portion="committed to protecting it through our compliance with this policy."/>
+    <LineBreak nWidth="6465" Line="committed to protecting it through our compliance with this policy."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b66c870" id="1037" symbol="11SwTextFrame" next="1038" prev="1036" upper="1030" txtNodeIndex="22" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="3796" width="9360" height="948" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="828"/>
+    </infos>
+This policy describes the types of information we may collect from you or that you may provide when you visit the website https://www.statetrace.com (our &quot;Website&quot;) and our practices for collecting, using, maintaining, protecting, and disclosing that information.    <Text nLength="95" nType="PortionType::Para" nHeight="276" nWidth="9298" Portion="This policy describes the types of information we may collect from you or that you may provide "/>
+    <LineBreak nWidth="9298" Line="This policy describes the types of information we may collect from you or that you may provide "/>
+    <Text nLength="27" nType="PortionType::Text" nHeight="276" nWidth="2619" Portion="when you visit the website "/>
+    <Text nLength="26" nType="PortionType::Text" nHeight="276" nWidth="2626" Portion="https://www.statetrace.com"/>
+    <Text nLength="7" nType="PortionType::Text" nHeight="276" nWidth="618" Portion=" (our &quot;"/>
+    <Text nLength="7" nType="PortionType::Text" nHeight="276" nWidth="827" Portion="Website"/>
+    <Text nLength="25" nType="PortionType::Text" nHeight="276" nWidth="2277" Portion="&quot;) and our practices for "/>
+    <LineBreak nWidth="8967" Line="when you visit the website https://www.statetrace.com (our &quot;Website&quot;) and our practices for "/>
+    <Text nLength="76" nType="PortionType::Lay" nHeight="276" nWidth="7118" Portion="collecting, using, maintaining, protecting, and disclosing that information."/>
+    <LineBreak nWidth="7118" Line="collecting, using, maintaining, protecting, and disclosing that information."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b5bc270" id="1038" symbol="11SwTextFrame" next="1039" prev="1037" upper="1030" txtNodeIndex="23" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="4744" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+This policy applies to information we collect:    <Text nLength="46" nType="PortionType::Para" nHeight="276" nWidth="4372" Portion="This policy applies to information we collect:"/>
+    <LineBreak nWidth="4372" Line="This policy applies to information we collect:"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b696030" id="1039" symbol="11SwTextFrame" next="1040" prev="1038" upper="1030" txtNodeIndex="24" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="5140" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+On this Website.    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1c842400" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="16" nType="PortionType::Text" nHeight="276" nWidth="1606" Portion="On this Website."/>
+    <LineBreak nWidth="1966" Line="&#xB7;On this Website."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b4ef210" id="1040" symbol="11SwTextFrame" next="1041" prev="1039" upper="1030" txtNodeIndex="25" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="5536" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+In email, text, and other electronic messages between you and this Website.    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1c984ef0" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="75" nType="PortionType::Text" nHeight="276" nWidth="7264" Portion="In email, text, and other electronic messages between you and this Website."/>
+    <LineBreak nWidth="7624" Line="&#xB7;In email, text, and other electronic messages between you and this Website."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b6a61b0" id="1041" symbol="11SwTextFrame" next="1042" prev="1040" upper="1030" txtNodeIndex="26" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="5932" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="552"/>
+    </infos>
+Through mobile and desktop applications you download from this Website, which provide dedicated non-browser-based interaction between you and this Website.    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1cc9f9d0" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="78" nType="PortionType::Text" nHeight="276" nWidth="7958" Portion="Through mobile and desktop applications you download from this Website, which "/>
+    <LineBreak nWidth="8318" Line="&#xB7;Through mobile and desktop applications you download from this Website, which "/>
+    <Text nLength="77" nType="PortionType::Lay" nHeight="276" nWidth="7697" Portion="provide dedicated non-browser-based interaction between you and this Website."/>
+    <LineBreak nWidth="7697" Line="provide dedicated non-browser-based interaction between you and this Website."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b5b98c0" id="1042" symbol="11SwTextFrame" next="1043" prev="1041" upper="1030" txtNodeIndex="27" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="6604" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="552"/>
+    </infos>
+When you interact with our advertising and applications on third-party websites and services, if those applications or advertising include links to this policy.    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1ccd4c90" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="84" nType="PortionType::Text" nHeight="276" nWidth="8131" Portion="When you interact with our advertising and applications on third-party websites and "/>
+    <LineBreak nWidth="8491" Line="&#xB7;When you interact with our advertising and applications on third-party websites and "/>
+    <Text nLength="76" nType="PortionType::Lay" nHeight="276" nWidth="6878" Portion="services, if those applications or advertising include links to this policy."/>
+    <LineBreak nWidth="6878" Line="services, if those applications or advertising include links to this policy."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1a18e620" id="1043" symbol="11SwTextFrame" next="1044" prev="1042" upper="1030" txtNodeIndex="28" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="7276" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+    <Text nLength="0" nType="PortionType::Para" nHeight="276"/>
+    <LineBreak/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1a454ef0" id="1044" symbol="11SwTextFrame" next="1045" prev="1043" upper="1030" txtNodeIndex="29" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="7672" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+It does not apply to information collected by:    <Text nLength="46" nType="PortionType::Para" nHeight="276" nWidth="4339" Portion="It does not apply to information collected by:"/>
+    <LineBreak nWidth="4339" Line="It does not apply to information collected by:"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b36d8d0" id="1045" symbol="11SwTextFrame" next="1046" prev="1044" upper="1030" txtNodeIndex="30" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="8068" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="552"/>
+    </infos>
+Us offline or through any other means, including on any other website operated by Company or any third party[ (including our affiliates and subsidiaries)]; or     <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1bbb6a00" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="82" nType="PortionType::Text" nHeight="276" nWidth="7991" Portion="Us offline or through any other means, including on any other website operated by "/>
+    <LineBreak nWidth="8351" Line="&#xB7;Us offline or through any other means, including on any other website operated by "/>
+    <Text nLength="77" nType="PortionType::Lay" nHeight="276" nWidth="7218" Portion="Company or any third party[ (including our affiliates and subsidiaries)]; or "/>
+    <LineBreak nWidth="7218" Line="Company or any third party[ (including our affiliates and subsidiaries)]; or "/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b539660" id="1046" symbol="11SwTextFrame" next="1047" prev="1045" upper="1030" txtNodeIndex="31" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="8740" width="9360" height="948" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="828"/>
+    </infos>
+Any third party [(including our affiliates and subsidiaries)], including through any application or content (including advertising) that may link to or be accessible from [or on] the Website]    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1deb83f0" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="85" nType="PortionType::Text" nHeight="276" nWidth="7945" Portion="Any third party [(including our affiliates and subsidiaries)], including through any "/>
+    <LineBreak nWidth="8305" Line="&#xB7;Any third party [(including our affiliates and subsidiaries)], including through any "/>
+    <Text nLength="90" nType="PortionType::Lay" nHeight="276" nWidth="8424" Portion="application or content (including advertising) that may link to or be accessible from [or "/>
+    <LineBreak nWidth="8424" Line="application or content (including advertising) that may link to or be accessible from [or "/>
+    <Text nLength="16" nType="PortionType::Lay" nHeight="276" nWidth="1599" Portion="on] the Website]"/>
+    <LineBreak nWidth="1599" Line="on] the Website]"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf149bc050" id="1047" symbol="11SwTextFrame" next="1048" prev="1046" upper="1030" txtNodeIndex="32" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="9688" width="9360" height="1776" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="1656"/>
+    </infos>
+Please read this policy carefully to understand our policies and practices regarding your information and how we will treat it. If you do not agree with our policies and practices, your choice is not to use our Website. By accessing or using this Website, you agree to this privacy policy. This policy may change from time to time (see Changes to Our Privacy Policy). Your continued use of this Website after we make changes is deemed to be acceptance of those changes, so please check the policy periodically for updates.     <Text nLength="90" nType="PortionType::Para" nHeight="276" nWidth="8470" Portion="Please read this policy carefully to understand our policies and practices regarding your "/>
+    <LineBreak nWidth="8470" Line="Please read this policy carefully to understand our policies and practices regarding your "/>
+    <Text nLength="96" nType="PortionType::Lay" nHeight="276" nWidth="9024" Portion="information and how we will treat it. If you do not agree with our policies and practices, your "/>
+    <LineBreak nWidth="9024" Line="information and how we will treat it. If you do not agree with our policies and practices, your "/>
+    <Text nLength="96" nType="PortionType::Lay" nHeight="276" nWidth="9090" Portion="choice is not to use our Website. By accessing or using this Website, you agree to this privacy "/>
+    <LineBreak nWidth="9090" Line="choice is not to use our Website. By accessing or using this Website, you agree to this privacy "/>
+    <Text nLength="54" nType="PortionType::Text" nHeight="276" nWidth="5272" Portion="policy. This policy may change from time to time (see "/>
+    <Text nLength="29" nType="PortionType::Text" nHeight="276" nWidth="2973" Portion="Changes to Our Privacy Policy"/>
+    <Text nLength="8" nType="PortionType::Text" nHeight="276" nWidth="753" Portion="). Your "/>
+    <LineBreak nWidth="8998" Line="policy. This policy may change from time to time (see Changes to Our Privacy Policy). Your "/>
+    <Text nLength="88" nType="PortionType::Lay" nHeight="276" nWidth="8649" Portion="continued use of this Website after we make changes is deemed to be acceptance of those "/>
+    <LineBreak nWidth="8649" Line="continued use of this Website after we make changes is deemed to be acceptance of those "/>
+    <Text nLength="62" nType="PortionType::Lay" nHeight="276" nWidth="5857" Portion="changes, so please check the policy periodically for updates. "/>
+    <LineBreak nWidth="5857" Line="changes, so please check the policy periodically for updates. "/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b5f4550" id="1048" symbol="11SwTextFrame" next="1049" prev="1047" upper="1030" txtNodeIndex="33" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="11464" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+Children Under the Age of [13/16]    <Text nLength="33" nType="PortionType::Para" nHeight="276" nWidth="3500" Portion="Children Under the Age of [13/16]"/>
+    <LineBreak nWidth="3500" Line="Children Under the Age of [13/16]"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b697e10" id="1049" symbol="11SwTextFrame" prev="1048" upper="1030" txtNodeIndex="34" WritingMode="Horizontal" follow="1170">
+    <infos>
+     <bounds left="30645" top="11860" width="9360" height="2328" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="2208"/>
+    </infos>
+Our Website is not intended for children under [13/16] years of age. No one under age [13/16] may provide any [personal] information to [or on] the Website. We do not knowingly collect personal information from children under [13/16]. If you are under [13/16], do not use or provide any information on this Website [or] [through any of its features,] [register on the Website,] [make any purchases through the Website,] [use any of the interactive or public comment features of this Website,] [or provide any information about yourself to us, including your name, address, telephone number, email address, or any screen name or user name you may use]. If we learn we have collected or received personal information from a child under [13/16] without verification of parental consent, we will delete that information. If you believe we might have any information from or about a child under [13/16], please contact us at info@statetrace.com.    <Text nLength="94" nType="PortionType::Para" nHeight="276" nWidth="9117" Portion="Our Website is not intended for children under [13/16] years of age. No one under age [13/16] "/>
+    <LineBreak nWidth="9117" Line="Our Website is not intended for children under [13/16] years of age. No one under age [13/16] "/>
+    <Text nLength="91" nType="PortionType::Lay" nHeight="276" nWidth="8971" Portion="may provide any [personal] information to [or on] the Website. We do not knowingly collect "/>
+    <LineBreak nWidth="8971" Line="may provide any [personal] information to [or on] the Website. We do not knowingly collect "/>
+    <Text nLength="97" nType="PortionType::Text" nHeight="276" nWidth="9338" Portion="personal information from children under [13/16]. If you are under [13/16], do not use or provide"/>
+    <Text nLength="1" nType="PortionType::Hole" Portion=" "/>
+    <LineBreak nWidth="9338" Line="personal information from children under [13/16]. If you are under [13/16], do not use or provide "/>
+    <Text nLength="95" nType="PortionType::Lay" nHeight="276" nWidth="8871" Portion="any information on this Website [or] [through any of its features,] [register on the Website,] "/>
+    <LineBreak nWidth="8871" Line="any information on this Website [or] [through any of its features,] [register on the Website,] "/>
+    <Text nLength="88" nType="PortionType::Lay" nHeight="276" nWidth="8643" Portion="[make any purchases through the Website,] [use any of the interactive or public comment "/>
+    <LineBreak nWidth="8643" Line="[make any purchases through the Website,] [use any of the interactive or public comment "/>
+    <Text nLength="98" nType="PortionType::Lay" nHeight="276" nWidth="9331" Portion="features of this Website,] [or provide any information about yourself to us, including your name, "/>
+    <LineBreak nWidth="9331" Line="features of this Website,] [or provide any information about yourself to us, including your name, "/>
+    <Text nLength="94" nType="PortionType::Lay" nHeight="276" nWidth="9310" Portion="address, telephone number, email address, or any screen name or user name you may use]. If we "/>
+    <LineBreak nWidth="9310" Line="address, telephone number, email address, or any screen name or user name you may use]. If we "/>
+    <Text nLength="92" nType="PortionType::Lay" nHeight="276" nWidth="8917" Portion="learn we have collected or received personal information from a child under [13/16] without "/>
+    <LineBreak nWidth="8917" Line="learn we have collected or received personal information from a child under [13/16] without "/>
+    <Finish/>
+   </txt>
+  </body>
+  <footer ptr="0x55bf11b26120" id="1031" symbol="13SwFooterFrame" prev="1030" upper="1029" lower="1032" fmtName="Right footer" fmtPtr="0x55bf1b89b020">
+   <infos>
+    <bounds left="30645" top="14684" width="9360" height="720" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+    <prtBounds left="0" top="324" width="9360" height="396"/>
+   </infos>
+   <txt ptr="0x55bf1b61bcf0" id="1032" symbol="11SwTextFrame" upper="1031" txtNodeIndex="9" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="15008" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+    <Finish/>
+   </txt>
+  </footer>
+ </page>
+ <page ptr="0x55bf1a080ef0" id="1059" symbol="11SwPageFrame" next="1091" prev="1029" upper="1028" lower="1060">
+  <page_status ValidFlyLayout="true" ValidFlyContent="true" ValidFlyInCnt="true" ValidLayout="true" ValidContent="true"/>
+  <infos>
+   <bounds left="29205" top="16408" width="12240" height="15840" mbFixSize="true" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+   <prtBounds left="1440" top="1440" width="9360" height="13680"/>
+  </infos>
+  <body ptr="0x55bf1b4bea40" id="1060" symbol="11SwBodyFrame" next="1061" upper="1059" lower="1170">
+   <infos>
+    <bounds left="30645" top="17848" width="9360" height="12960" mbFixSize="true" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+    <prtBounds left="0" top="0" width="9360" height="12960"/>
+   </infos>
+   <txt ptr="0x55bf1b8dbb50" id="1170" symbol="11SwTextFrame" next="1050" upper="1060" txtNodeIndex="34" WritingMode="Horizontal" precede="1049">
+    <infos>
+     <bounds left="30645" top="17848" width="9360" height="552" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="0" width="9360" height="552"/>
+    </infos>
+Our Website is not intended for children under [13/16] years of age. No one under age [13/16] may provide any [personal] information to [or on] the Website. We do not knowingly collect personal information from children under [13/16]. If you are under [13/16], do not use or provide any information on this Website [or] [through any of its features,] [register on the Website,] [make any purchases through the Website,] [use any of the interactive or public comment features of this Website,] [or provide any information about yourself to us, including your name, address, telephone number, email address, or any screen name or user name you may use]. If we learn we have collected or received personal information from a child under [13/16] without verification of parental consent, we will delete that information. If you believe we might have any information from or about a child under [13/16], please contact us at info@statetrace.com.    <Skip nLength="750"/>
+    <Text nLength="96" nType="PortionType::Para" nHeight="276" nWidth="9057" Portion="verification of parental consent, we will delete that information. If you believe we might have "/>
+    <LineBreak nWidth="9057" Line="verification of parental consent, we will delete that information. If you believe we might have "/>
+    <Text nLength="94" nType="PortionType::Lay" nHeight="276" nWidth="9085" Portion="any information from or about a child under [13/16], please contact us at info@statetrace.com."/>
+    <LineBreak nWidth="9085" Line="any information from or about a child under [13/16], please contact us at info@statetrace.com."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b644c90" id="1050" symbol="11SwTextFrame" next="1051" prev="1170" upper="1060" txtNodeIndex="35" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="18400" width="9360" height="948" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="828"/>
+    </infos>
+[California residents under 16 years of age may have additional rights regarding the collection and sale of their personal information. Please see [Your California Privacy Rights] for more information.]    <Text nLength="96" nType="PortionType::Para" nHeight="276" nWidth="9103" Portion="[California residents under 16 years of age may have additional rights regarding the collection "/>
+    <LineBreak nWidth="9103" Line="[California residents under 16 years of age may have additional rights regarding the collection "/>
+    <Text nLength="51" nType="PortionType::Text" nHeight="276" nWidth="4765" Portion="and sale of their personal information. Please see "/>
+    <Text nLength="32" nType="PortionType::Text" nHeight="276" nWidth="3166" Portion="[Your California Privacy Rights]"/>
+    <Text nLength="10" nType="PortionType::Text" nHeight="276" nWidth="953" Portion=" for more "/>
+    <LineBreak nWidth="8884" Line="and sale of their personal information. Please see [Your California Privacy Rights] for more "/>
+    <Text nLength="13" nType="PortionType::Lay" nHeight="276" nWidth="1273" Portion="information.]"/>
+    <LineBreak nWidth="1273" Line="information.]"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b58ff60" id="1051" symbol="11SwTextFrame" next="1052" prev="1050" upper="1060" txtNodeIndex="36" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="19348" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+Information We Collect About You and How We Collect It    <Text nLength="54" nType="PortionType::Para" nHeight="276" nWidth="6033" Portion="Information We Collect About You and How We Collect It"/>
+    <LineBreak nWidth="6033" Line="Information We Collect About You and How We Collect It"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b88f3c0" id="1052" symbol="11SwTextFrame" next="1053" prev="1051" upper="1060" txtNodeIndex="37" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="19744" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="552"/>
+    </infos>
+We collect several types of information from and about users of our Website, including information:    <Text nLength="87" nType="PortionType::Para" nHeight="276" nWidth="8444" Portion="We collect several types of information from and about users of our Website, including "/>
+    <LineBreak nWidth="8444" Line="We collect several types of information from and about users of our Website, including "/>
+    <Text nLength="12" nType="PortionType::Lay" nHeight="276" nWidth="1200" Portion="information:"/>
+    <LineBreak nWidth="1200" Line="information:"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8b7580" id="1053" symbol="11SwTextFrame" next="1054" prev="1052" upper="1060" txtNodeIndex="38" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="20416" width="9360" height="1224" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="1104"/>
+    </infos>
+By which you may be personally identified, such as name, postal address, e-mail address, telephone number,[ social security number][ or [OTHER PERSONAL INFORMATION COLLECTED]/any other identifier by which you may be contacted online or offline] (&quot;personal information&quot;);    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1b902320" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="88" nType="PortionType::Text" nHeight="276" nWidth="8590" Portion="By which you may be personally identified, such as name, postal address, e-mail address,"/>
+    <Text nLength="1" nType="PortionType::Hole" Portion=" "/>
+    <LineBreak nWidth="8950" Line="&#xB7;By which you may be personally identified, such as name, postal address, e-mail address, "/>
+    <Text nLength="75" nType="PortionType::Lay" nHeight="276" nWidth="8559" Portion="telephone number,[ social security number][ or [OTHER PERSONAL INFORMATION "/>
+    <LineBreak nWidth="8559" Line="telephone number,[ social security number][ or [OTHER PERSONAL INFORMATION "/>
+    <Text nLength="81" nType="PortionType::Lay" nHeight="276" nWidth="8251" Portion="COLLECTED]/any other identifier by which you may be contacted online or offline] "/>
+    <LineBreak nWidth="8251" Line="COLLECTED]/any other identifier by which you may be contacted online or offline] "/>
+    <Text nLength="2" nType="PortionType::Text" nHeight="276" nWidth="178" Portion="(&quot;"/>
+    <Text nLength="20" nType="PortionType::Text" nHeight="276" nWidth="2167" Portion="personal information"/>
+    <Text nLength="3" nType="PortionType::Text" nHeight="276" nWidth="245" Portion="&quot;);"/>
+    <LineBreak nWidth="2590" Line="(&quot;personal information&quot;);"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b894610" id="1054" symbol="11SwTextFrame" next="1055" prev="1053" upper="1060" txtNodeIndex="39" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="21640" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="552"/>
+    </infos>
+That is about you but individually does not identify you, such as [INFORMATION EXAMPLES]; and/or    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1c515480" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="79" nType="PortionType::Text" nHeight="276" nWidth="8052" Portion="That is about you but individually does not identify you, such as [INFORMATION "/>
+    <LineBreak nWidth="8412" Line="&#xB7;That is about you but individually does not identify you, such as [INFORMATION "/>
+    <Text nLength="17" nType="PortionType::Lay" nHeight="276" nWidth="2087" Portion="EXAMPLES]; and/or"/>
+    <LineBreak nWidth="2087" Line="EXAMPLES]; and/or"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b65e6e0" id="1055" symbol="11SwTextFrame" next="1056" prev="1054" upper="1060" txtNodeIndex="40" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="22312" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="552"/>
+    </infos>
+About your internet connection, the equipment you use to access our Website, and usage details.    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1b905860" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="87" nType="PortionType::Text" nHeight="276" nWidth="8570" Portion="About your internet connection, the equipment you use to access our Website, and usage "/>
+    <LineBreak nWidth="8930" Line="&#xB7;About your internet connection, the equipment you use to access our Website, and usage "/>
+    <Text nLength="8" nType="PortionType::Lay" nHeight="276" nWidth="686" Portion="details."/>
+    <LineBreak nWidth="686" Line="details."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4a5e0" id="1056" symbol="11SwTextFrame" next="1057" prev="1055" upper="1060" txtNodeIndex="41" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="22984" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+We collect this information:    <Text nLength="28" nType="PortionType::Para" nHeight="276" nWidth="2699" Portion="We collect this information:"/>
+    <LineBreak nWidth="2699" Line="We collect this information:"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4a750" id="1057" symbol="11SwTextFrame" next="1058" prev="1056" upper="1060" txtNodeIndex="42" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="23380" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+Directly from you when you provide it to us.    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf194c4500" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="44" nType="PortionType::Text" nHeight="276" nWidth="4299" Portion="Directly from you when you provide it to us."/>
+    <LineBreak nWidth="4659" Line="&#xB7;Directly from you when you provide it to us."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4a8c0" id="1058" symbol="11SwTextFrame" next="1065" prev="1057" upper="1060" txtNodeIndex="43" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="23776" width="9360" height="948" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="828"/>
+    </infos>
+Automatically as you navigate through the site. Information collected automatically may include usage details, IP addresses, and information collected through cookies[, web beacons,] [and other tracking technologies].    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1bacb6a0" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="88" nType="PortionType::Text" nHeight="276" nWidth="8570" Portion="Automatically as you navigate through the site. Information collected automatically may "/>
+    <LineBreak nWidth="8930" Line="&#xB7;Automatically as you navigate through the site. Information collected automatically may "/>
+    <Text nLength="85" nType="PortionType::Lay" nHeight="276" nWidth="8157" Portion="include usage details, IP addresses, and information collected through cookies[, web "/>
+    <LineBreak nWidth="8157" Line="include usage details, IP addresses, and information collected through cookies[, web "/>
+    <Text nLength="44" nType="PortionType::Lay" nHeight="276" nWidth="4212" Portion="beacons,] [and other tracking technologies]."/>
+    <LineBreak nWidth="4212" Line="beacons,] [and other tracking technologies]."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4dcb0" id="1065" symbol="11SwTextFrame" next="1066" prev="1058" upper="1060" txtNodeIndex="44" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="24724" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+[From third parties, for example, our business partners.]    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf18fa25c0" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="57" nType="PortionType::Text" nHeight="276" nWidth="5372" Portion="[From third parties, for example, our business partners.]"/>
+    <LineBreak nWidth="5732" Line="&#xB7;[From third parties, for example, our business partners.]"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4dde0" id="1066" symbol="11SwTextFrame" next="1067" prev="1065" upper="1060" txtNodeIndex="45" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="25120" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+Information You Provide to Us      <Text nLength="29" nType="PortionType::Text" nHeight="276" nWidth="2973" Portion="Information You Provide to Us"/>
+    <Text nLength="2" nType="PortionType::Text" nHeight="276" nWidth="120" Portion="  "/>
+    <LineBreak nWidth="3093" Line="Information You Provide to Us  "/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4df10" id="1067" symbol="11SwTextFrame" next="1068" prev="1066" upper="1060" txtNodeIndex="46" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="25516" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+The information we collect on or through our Website may include:    <Text nLength="65" nType="PortionType::Para" nHeight="276" nWidth="6505" Portion="The information we collect on or through our Website may include:"/>
+    <LineBreak nWidth="6505" Line="The information we collect on or through our Website may include:"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4e040" id="1068" symbol="11SwTextFrame" next="1069" prev="1067" upper="1060" txtNodeIndex="47" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="25912" width="9360" height="1500" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="1380"/>
+    </infos>
+Information that you provide by filling in forms on our Website. This includes information provided at the time of [registering to use our Website,] [subscribing to our service,] [posting material,] [or requesting further services]. We may also ask you for information [when you enter a contest or promotion sponsored by us, and] when you report a problem with our Website.    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1bbb3830" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="79" nType="PortionType::Text" nHeight="276" nWidth="7585" Portion="Information that you provide by filling in forms on our Website. This includes "/>
+    <LineBreak nWidth="7945" Line="&#xB7;Information that you provide by filling in forms on our Website. This includes "/>
+    <Text nLength="90" nType="PortionType::Lay" nHeight="276" nWidth="8471" Portion="information provided at the time of [registering to use our Website,] [subscribing to our "/>
+    <LineBreak nWidth="8471" Line="information provided at the time of [registering to use our Website,] [subscribing to our "/>
+    <Text nLength="88" nType="PortionType::Lay" nHeight="276" nWidth="8251" Portion="service,] [posting material,] [or requesting further services]. We may also ask you for "/>
+    <LineBreak nWidth="8251" Line="service,] [posting material,] [or requesting further services]. We may also ask you for "/>
+    <Text nLength="82" nType="PortionType::Lay" nHeight="276" nWidth="8192" Portion="information [when you enter a contest or promotion sponsored by us, and] when you "/>
+    <LineBreak nWidth="8192" Line="information [when you enter a contest or promotion sponsored by us, and] when you "/>
+    <Text nLength="34" nType="PortionType::Lay" nHeight="276" nWidth="3372" Portion="report a problem with our Website."/>
+    <LineBreak nWidth="3372" Line="report a problem with our Website."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4e170" id="1069" symbol="11SwTextFrame" next="1070" prev="1068" upper="1060" txtNodeIndex="48" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="27412" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="552"/>
+    </infos>
+Records and copies of your correspondence (including email addresses), if you contact us.    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1c4e0850" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="86" nType="PortionType::Text" nHeight="276" nWidth="8390" Portion="Records and copies of your correspondence (including email addresses), if you contact "/>
+    <LineBreak nWidth="8750" Line="&#xB7;Records and copies of your correspondence (including email addresses), if you contact "/>
+    <Text nLength="3" nType="PortionType::Lay" nHeight="276" nWidth="273" Portion="us."/>
+    <LineBreak nWidth="273" Line="us."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4e2e0" id="1070" symbol="11SwTextFrame" next="1071" prev="1069" upper="1060" txtNodeIndex="49" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="28084" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+Your responses to surveys that we might ask you to complete for research purposes.    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1bdfb0c0" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="82" nType="PortionType::Text" nHeight="276" nWidth="8064" Portion="Your responses to surveys that we might ask you to complete for research purposes."/>
+    <LineBreak nWidth="8424" Line="&#xB7;Your responses to surveys that we might ask you to complete for research purposes."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4e450" id="1071" symbol="11SwTextFrame" next="1072" prev="1070" upper="1060" txtNodeIndex="50" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="28480" width="9360" height="948" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="828"/>
+    </infos>
+Details of transactions you carry out through our Website and of the fulfillment of your orders. You may be required to provide financial information before placing an order through our Website.    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1bbb6f90" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="89" nType="PortionType::Text" nHeight="276" nWidth="8445" Portion="Details of transactions you carry out through our Website and of the fulfillment of your "/>
+    <LineBreak nWidth="8805" Line="&#xB7;Details of transactions you carry out through our Website and of the fulfillment of your "/>
+    <Text nLength="85" nType="PortionType::Lay" nHeight="276" nWidth="8237" Portion="orders. You may be required to provide financial information before placing an order "/>
+    <LineBreak nWidth="8237" Line="orders. You may be required to provide financial information before placing an order "/>
+    <Text nLength="20" nType="PortionType::Lay" nHeight="276" nWidth="2033" Portion="through our Website."/>
+    <LineBreak nWidth="2033" Line="through our Website."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4e5c0" id="1072" symbol="11SwTextFrame" next="1073" prev="1071" upper="1060" txtNodeIndex="51" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="29428" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+Your search queries on the Website.    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1c57a8b0" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="35" nType="PortionType::Text" nHeight="276" nWidth="3479" Portion="Your search queries on the Website."/>
+    <LineBreak nWidth="3839" Line="&#xB7;Your search queries on the Website."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4e730" id="1073" symbol="11SwTextFrame" prev="1072" upper="1060" txtNodeIndex="52" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="29824" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+    <Text nLength="0" nType="PortionType::Para" nHeight="276"/>
+    <LineBreak/>
+    <Finish/>
+   </txt>
+  </body>
+  <footer ptr="0x55bf1a379950" id="1061" symbol="13SwFooterFrame" prev="1060" upper="1059" lower="1062" fmtName="Right footer" fmtPtr="0x55bf1b888c10">
+   <infos>
+    <bounds left="30645" top="30808" width="9360" height="720" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+    <prtBounds left="0" top="324" width="9360" height="396"/>
+   </infos>
+   <txt ptr="0x55bf14a4ac00" id="1062" symbol="11SwTextFrame" upper="1061" txtNodeIndex="6" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="31132" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+    <anchored>
+     <fly ptr="0x55bf1b274870" id="1063" symbol="19SwFlyAtContentFrame" lower="1064">
+      <infos>
+       <bounds left="35258" top="31133" width="135" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+       <prtBounds left="0" top="0" width="135" height="396"/>
+      </infos>
+      <txt ptr="0x55bf14a4b1b0" id="1064" symbol="11SwTextFrame" upper="1063" txtNodeIndex="12" WritingMode="Horizontal">
+       <infos>
+        <bounds left="35258" top="31133" width="135" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+        <prtBounds left="0" top="120" width="135" height="276"/>
+       </infos>
+*       <Special nLength="1" nType="PortionType::Field" rText="2"/>
+       <LineBreak nWidth="134" Line="2"/>
+       <Finish/>
+      </txt>
+     </fly>
+    </anchored>
+**    <Text nLength="1" nType="PortionType::TabCenter" nHeight="276" nWidth="4680" Portion="*"/>
+    <Text nLength="1" nType="PortionType::TabRight" nHeight="276" nWidth="4680" Portion="*"/>
+    <LineBreak nWidth="9360" Line="**"/>
+    <Finish/>
+   </txt>
+  </footer>
+ </page>
+ <page ptr="0x55bf19fd2290" id="1091" symbol="11SwPageFrame" next="1123" prev="1059" upper="1028" lower="1092">
+  <page_status ValidFlyLayout="false" ValidFlyContent="false" ValidFlyInCnt="false" ValidLayout="false" ValidContent="false"/>
+  <infos>
+   <bounds left="29205" top="32532" width="12240" height="15840" mbFixSize="true" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+   <prtBounds left="1440" top="1440" width="9360" height="13680"/>
+  </infos>
+  <body ptr="0x55bf1a4e8530" id="1092" symbol="11SwBodyFrame" next="1093" upper="1091" lower="1074">
+   <infos>
+    <bounds left="30645" top="33972" width="9360" height="12960" mbFixSize="true" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+    <prtBounds left="0" top="0" width="9360" height="12960"/>
+   </infos>
+   <txt ptr="0x55bf14a4e8a0" id="1074" symbol="11SwTextFrame" next="1075" upper="1092" txtNodeIndex="53" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="33972" width="9360" height="2484" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="0" width="9360" height="2484"/>
+    </infos>
+You also may provide information to be published or displayed (hereinafter, &quot;posted&quot;) on public areas of the Website, or transmitted to other users of the Website or third parties (collectively, &quot;User Contributions&quot;). Your User Contributions are posted on and transmitted to others at your own risk. Although [we limit access to certain pages/you may set certain privacy settings for such information by logging into your account profile], please be aware that no security measures are perfect or impenetrable. Additionally, we cannot control the actions of other users of the Website with whom you may choose to share your User Contributions. Therefore, we cannot and do not guarantee that your User Contributions will not be viewed by unauthorized persons.    <Text nLength="77" nType="PortionType::Text" nHeight="276" nWidth="7483" Portion="You also may provide information to be published or displayed (hereinafter, &quot;"/>
+    <Text nLength="6" nType="PortionType::Text" nHeight="276" nWidth="667" Portion="posted"/>
+    <Text nLength="13" nType="PortionType::Text" nHeight="276" nWidth="1198" Portion="&quot;) on public "/>
+    <LineBreak nWidth="9348" Line="You also may provide information to be published or displayed (hereinafter, &quot;posted&quot;) on public "/>
+    <Text nLength="99" nType="PortionType::Lay" nHeight="276" nWidth="9077" Portion="areas of the Website, or transmitted to other users of the Website or third parties (collectively, "/>
+    <LineBreak nWidth="9077" Line="areas of the Website, or transmitted to other users of the Website or third parties (collectively, "/>
+    <Text nLength="1" nType="PortionType::Text" nHeight="276" nWidth="98" Portion="&quot;"/>
+    <Text nLength="18" nType="PortionType::Text" nHeight="276" nWidth="1980" Portion="User Contributions"/>
+    <Text nLength="76" nType="PortionType::Text" nHeight="276" nWidth="7257" Portion="&quot;). Your User Contributions are posted on and transmitted to others at your "/>
+    <LineBreak nWidth="9335" Line="&quot;User Contributions&quot;). Your User Contributions are posted on and transmitted to others at your "/>
+    <Text nLength="94" nType="PortionType::Lay" nHeight="276" nWidth="8944" Portion="own risk. Although [we limit access to certain pages/you may set certain privacy settings for "/>
+    <LineBreak nWidth="8944" Line="own risk. Although [we limit access to certain pages/you may set certain privacy settings for "/>
+    <Text nLength="89" nType="PortionType::Lay" nHeight="276" nWidth="8484" Portion="such information by logging into your account profile], please be aware that no security "/>
+    <LineBreak nWidth="8484" Line="such information by logging into your account profile], please be aware that no security "/>
+    <Text nLength="97" nType="PortionType::Lay" nHeight="276" nWidth="9236" Portion="measures are perfect or impenetrable. Additionally, we cannot control the actions of other users "/>
+    <LineBreak nWidth="9236" Line="measures are perfect or impenetrable. Additionally, we cannot control the actions of other users "/>
+    <Text nLength="88" nType="PortionType::Lay" nHeight="276" nWidth="8898" Portion="of the Website with whom you may choose to share your User Contributions. Therefore, we "/>
+    <LineBreak nWidth="8898" Line="of the Website with whom you may choose to share your User Contributions. Therefore, we "/>
+    <Text nLength="92" nType="PortionType::Lay" nHeight="276" nWidth="9031" Portion="cannot and do not guarantee that your User Contributions will not be viewed by unauthorized "/>
+    <LineBreak nWidth="9031" Line="cannot and do not guarantee that your User Contributions will not be viewed by unauthorized "/>
+    <Text nLength="8" nType="PortionType::Lay" nHeight="276" nWidth="793" Portion="persons."/>
+    <LineBreak nWidth="793" Line="persons."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4ea10" id="1075" symbol="11SwTextFrame" next="1076" prev="1074" upper="1092" txtNodeIndex="54" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="36456" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+Information We Collect Through Automatic Data Collection Technologies      <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4eb80" id="1076" symbol="11SwTextFrame" next="1077" prev="1075" upper="1092" txtNodeIndex="55" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="36852" width="9360" height="948" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="828"/>
+    </infos>
+As you navigate through and interact with our Website, we may use automatic data collection technologies to collect certain information about your equipment, browsing actions, and patterns, including:    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4ecf0" id="1077" symbol="11SwTextFrame" next="1078" prev="1076" upper="1092" txtNodeIndex="56" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="37800" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="552"/>
+    </infos>
+ Details of your visits to our Website, including traffic data, location data, logs, and other communication data and the resources that you access and use on the Website.    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4ee60" id="1078" symbol="11SwTextFrame" next="1080" prev="1077" upper="1092" txtNodeIndex="57" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="38472" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="552"/>
+    </infos>
+Information about your computer and internet connection, including your IP address, operating system, and browser type.    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4f140" id="1080" symbol="11SwTextFrame" next="1081" prev="1078" upper="1092" txtNodeIndex="58" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="39144" width="9360" height="1224" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="1104"/>
+    </infos>
+The information we collect automatically [does/may/is only statistical data and does not] include personal information[, [but/or] we may maintain it or associate it with personal information we collect in other ways or receive from third parties]. It helps us to improve our Website and to deliver a better and more personalized service, including by enabling us to:    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4f2b0" id="1081" symbol="11SwTextFrame" next="1082" prev="1080" upper="1092" txtNodeIndex="59" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="40368" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+Estimate our audience size and usage patterns.    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4f420" id="1082" symbol="11SwTextFrame" next="1083" prev="1081" upper="1092" txtNodeIndex="60" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="40764" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="552"/>
+    </infos>
+Store information about your preferences, allowing us to customize our Website according to your individual interests.    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4f590" id="1083" symbol="11SwTextFrame" next="1084" prev="1082" upper="1092" txtNodeIndex="61" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="41436" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+Speed up your searches.    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4f700" id="1084" symbol="11SwTextFrame" next="1085" prev="1083" upper="1092" txtNodeIndex="62" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="41832" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+Recognize you when you return to our Website.    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4f870" id="1085" symbol="11SwTextFrame" next="1086" prev="1084" upper="1092" txtNodeIndex="63" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="42228" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+The technologies we use for this automatic data collection may include:    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4f9e0" id="1086" symbol="11SwTextFrame" next="1088" prev="1085" upper="1092" txtNodeIndex="64" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="42624" width="9360" height="1500" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="1380"/>
+    </infos>
+Cookies (or browser cookies). A cookie is a small file placed on the hard drive of your computer. You may refuse to accept browser cookies by activating the appropriate setting on your browser. However, if you select this setting you may be unable to access certain parts of our Website. Unless you have adjusted your browser setting so that it will refuse cookies, our system will issue cookies when you direct your browser to our Website.     <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4fcc0" id="1088" symbol="11SwTextFrame" next="1089" prev="1086" upper="1092" txtNodeIndex="65" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="44124" width="9360" height="1500" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="1380"/>
+    </infos>
+Web Beacons. Pages of our the Website [and our e-mails] may contain small electronic files known as web beacons (also referred to as clear gifs, pixel tags, and single-pixel gifs) that permit the Company, for example, to count users who have visited those pages or [opened an email] and for other related website statistics (for example, recording the popularity of certain website content and verifying system and server integrity).     <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4fe30" id="1089" symbol="11SwTextFrame" next="1090" prev="1088" upper="1092" txtNodeIndex="66" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="45624" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="552"/>
+    </infos>
+We do not collect personal information automatically, but we may tie this information to personal information about you that we collect from other sources or you provide to us.    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a4ffa0" id="1090" symbol="11SwTextFrame" prev="1089" upper="1092" txtNodeIndex="67" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="46296" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+[Third-Party Use of Cookies [and Other Tracking Technologies]]    <Finish/>
+   </txt>
+  </body>
+  <footer ptr="0x55bf1b02a660" id="1093" symbol="13SwFooterFrame" prev="1092" upper="1091" lower="1094" fmtName="Right footer" fmtPtr="0x55bf1b888c10">
+   <infos>
+    <bounds left="30645" top="46932" width="9360" height="720" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+    <prtBounds left="0" top="324" width="9360" height="396"/>
+   </infos>
+   <txt ptr="0x55bf14a50290" id="1094" symbol="11SwTextFrame" upper="1093" txtNodeIndex="6" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="47256" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+    <anchored>
+     <fly ptr="0x55bf1a499ab0" id="1095" symbol="19SwFlyAtContentFrame" lower="1096">
+      <infos>
+       <bounds left="35258" top="47257" width="135" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+       <prtBounds left="0" top="0" width="135" height="396"/>
+      </infos>
+      <txt ptr="0x55bf14a50560" id="1096" symbol="11SwTextFrame" upper="1095" txtNodeIndex="12" WritingMode="Horizontal">
+       <infos>
+        <bounds left="35258" top="47257" width="135" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+        <prtBounds left="0" top="120" width="135" height="276"/>
+       </infos>
+*       <Finish/>
+      </txt>
+     </fly>
+    </anchored>
+**    <Finish/>
+   </txt>
+  </footer>
+ </page>
+ <page ptr="0x55bf1a2ce4c0" id="1123" symbol="11SwPageFrame" next="1155" prev="1091" upper="1028" lower="1124">
+  <page_status ValidFlyLayout="false" ValidFlyContent="false" ValidFlyInCnt="false" ValidLayout="false" ValidContent="false"/>
+  <infos>
+   <bounds left="29205" top="48656" width="12240" height="15840" mbFixSize="true" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+   <prtBounds left="1440" top="1440" width="9360" height="13680"/>
+  </infos>
+  <body ptr="0x55bf1a397120" id="1124" symbol="11SwBodyFrame" next="1125" upper="1123" lower="1097">
+   <infos>
+    <bounds left="30645" top="50096" width="9360" height="12960" mbFixSize="true" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+    <prtBounds left="0" top="0" width="9360" height="12960"/>
+   </infos>
+   <txt ptr="0x55bf14a51620" id="1097" symbol="11SwTextFrame" next="1098" upper="1124" txtNodeIndex="68" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="50096" width="9360" height="2208" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="0" width="9360" height="2208"/>
+    </infos>
+Some content or applications, including advertisements, on the Website are served by third-parties, including advertisers, ad networks and servers, content providers, and application providers. These third parties may use cookies alone or in conjunction with web beacons or other tracking technologies] to collect information about you when you use our website. The information they collect may be associated with your personal information or they may collect information, including personal information, about your online activities over time and across different websites and other online services. They may use this information to provide you with interest-based (behavioral) advertising or other targeted content.     <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a51750" id="1098" symbol="11SwTextFrame" next="1099" prev="1097" upper="1124" txtNodeIndex="69" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="52304" width="9360" height="1500" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="1380"/>
+    </infos>
+We do not control these third parties' tracking technologies or how they may be used. If you have any questions about an advertisement or other targeted content, you should contact the responsible provider directly. For information about how you can opt out of receiving targeted advertising from many providers, see Choices About How We Use and Disclose Your Information.    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a51880" id="1099" symbol="11SwTextFrame" next="1100" prev="1098" upper="1124" txtNodeIndex="70" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="53804" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+How We Use Your Information    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a519b0" id="1100" symbol="11SwTextFrame" next="1101" prev="1099" upper="1124" txtNodeIndex="71" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="54200" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="552"/>
+    </infos>
+We use information that we collect about you or that you provide to us, including any personal information:    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a51ae0" id="1101" symbol="11SwTextFrame" next="1102" prev="1100" upper="1124" txtNodeIndex="72" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="54872" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+To present our Website and its contents to you.    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a51c50" id="1102" symbol="11SwTextFrame" next="1103" prev="1101" upper="1124" txtNodeIndex="73" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="55268" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+To provide you with information, products, or services that you request from us.    <Finish/>
+   </txt>
+   <txt ptr="0x55bf14a51dc0" id="1103" symbol="11SwTextFrame" next="1104" prev="1102" upper="1124" txtNodeIndex="74" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="55664" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+To fulfill any other purpose for which you provide it.    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d4030" id="1104" symbol="11SwTextFrame" next="1105" prev="1103" upper="1124" txtNodeIndex="75" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="56060" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="552"/>
+    </infos>
+To provide you with notices about your account/subscription, including expiration and renewal notices.    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d4160" id="1105" symbol="11SwTextFrame" next="1106" prev="1104" upper="1124" txtNodeIndex="76" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="56732" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="552"/>
+    </infos>
+To carry out our obligations and enforce our rights arising from any contracts entered into between you and us, including for billing and collection.    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d4290" id="1106" symbol="11SwTextFrame" next="1107" prev="1105" upper="1124" txtNodeIndex="77" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="57404" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="552"/>
+    </infos>
+To notify you about changes to our Website or any products or services we offer or provide though it.    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d43c0" id="1107" symbol="11SwTextFrame" next="1109" prev="1106" upper="1124" txtNodeIndex="78" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="58076" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+To allow you to participate in interactive features on our Website.    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d4620" id="1109" symbol="11SwTextFrame" next="1110" prev="1107" upper="1124" txtNodeIndex="79" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="58472" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+In any other way we may describe when you provide the information.    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d4750" id="1110" symbol="11SwTextFrame" next="1111" prev="1109" upper="1124" txtNodeIndex="80" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="58868" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+For any other purpose with your consent.    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d4880" id="1111" symbol="11SwTextFrame" next="1112" prev="1110" upper="1124" txtNodeIndex="81" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="59264" width="9360" height="1500" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="1380"/>
+    </infos>
+[We may also use your information to contact you about [our own and third-parties'] goods and services that may be of interest to you. If you do not want us to use your information in this way, please [check the relevant box located on the form on which we collect your data (the [order form/registration form])/adjust your user preferences in your account profile.] For more information, see Choices About How We Use and Disclose Your Information.    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d49b0" id="1112" symbol="11SwTextFrame" next="1113" prev="1111" upper="1124" txtNodeIndex="82" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="60764" width="9360" height="1224" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="1104"/>
+    </infos>
+We may use the information we have collected from you to enable us to display advertisements to our advertisers' target audiences. Even though we do not disclose your personal information for these purposes without your consent, if you click on or otherwise interact with an advertisement, the advertiser may assume that you meet its target criteria.]    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d4ae0" id="1113" symbol="11SwTextFrame" next="1114" prev="1112" upper="1124" txtNodeIndex="83" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="61988" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+Disclosure of Your Information    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d4c10" id="1114" symbol="11SwTextFrame" prev="1113" upper="1124" txtNodeIndex="84" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="62384" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="552"/>
+    </infos>
+We may disclose aggregated information about our users[, and information that does not identify any individual,] without restriction.     <Finish/>
+   </txt>
+  </body>
+  <footer ptr="0x55bf1a059540" id="1125" symbol="13SwFooterFrame" prev="1124" upper="1123" lower="1126" fmtName="Right footer" fmtPtr="0x55bf1b888c10">
+   <infos>
+    <bounds left="30645" top="63056" width="9360" height="720" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+    <prtBounds left="0" top="324" width="9360" height="396"/>
+   </infos>
+   <txt ptr="0x55bf1b8d56c0" id="1126" symbol="11SwTextFrame" upper="1125" txtNodeIndex="6" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="63380" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+    <anchored>
+     <fly ptr="0x55bf1a70b840" id="1127" symbol="19SwFlyAtContentFrame" lower="1128">
+      <infos>
+       <bounds left="35258" top="63381" width="135" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+       <prtBounds left="0" top="0" width="135" height="396"/>
+      </infos>
+      <txt ptr="0x55bf1b8d5910" id="1128" symbol="11SwTextFrame" upper="1127" txtNodeIndex="12" WritingMode="Horizontal">
+       <infos>
+        <bounds left="35258" top="63381" width="135" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="false" mbValidPrtArea="true"/>
+        <prtBounds left="0" top="120" width="135" height="276"/>
+       </infos>
+*       <Finish/>
+      </txt>
+     </fly>
+    </anchored>
+**    <Finish/>
+   </txt>
+  </footer>
+ </page>
+ <page ptr="0x55bf1a15c100" id="1155" symbol="11SwPageFrame" next="1175" prev="1123" upper="1028" lower="1156">
+  <page_status ValidFlyLayout="true" ValidFlyContent="true" ValidFlyInCnt="true" ValidLayout="true" ValidContent="true"/>
+  <infos>
+   <bounds left="29205" top="64780" width="12240" height="15840" mbFixSize="true" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+   <prtBounds left="1440" top="1440" width="9360" height="13680"/>
+  </infos>
+  <body ptr="0x55bf1b2e7dd0" id="1156" symbol="11SwBodyFrame" next="1157" upper="1155" lower="1115">
+   <infos>
+    <bounds left="30645" top="66220" width="9360" height="12960" mbFixSize="true" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+    <prtBounds left="0" top="0" width="9360" height="12960"/>
+   </infos>
+   <txt ptr="0x55bf1b8d4d40" id="1115" symbol="11SwTextFrame" next="1116" upper="1156" txtNodeIndex="85" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="66220" width="9360" height="552" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="0" width="9360" height="552"/>
+    </infos>
+We may disclose personal information that we collect or you provide as described in this privacy policy:    <Text nLength="96" nType="PortionType::Text" nHeight="276" nWidth="9310" Portion="We may disclose personal information that we collect or you provide as described in this privacy"/>
+    <Text nLength="1" nType="PortionType::Hole" Portion=" "/>
+    <LineBreak nWidth="9310" Line="We may disclose personal information that we collect or you provide as described in this privacy "/>
+    <Text nLength="7" nType="PortionType::Lay" nHeight="276" nWidth="667" Portion="policy:"/>
+    <LineBreak nWidth="667" Line="policy:"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d4e70" id="1116" symbol="11SwTextFrame" next="1117" prev="1115" upper="1156" txtNodeIndex="86" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="66772" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+To our subsidiaries and affiliates.    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1b9208a0" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="35" nType="PortionType::Text" nHeight="276" nWidth="3206" Portion="To our subsidiaries and affiliates."/>
+    <LineBreak nWidth="3566" Line="&#xB7;To our subsidiaries and affiliates."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d4fa0" id="1117" symbol="11SwTextFrame" next="1118" prev="1116" upper="1156" txtNodeIndex="87" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="67168" width="9360" height="948" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="828"/>
+    </infos>
+To contractors, service providers, and other third parties we use to support our business[ and who are bound by contractual obligations to keep personal information confidential and use it only for the purposes for which we disclose it to them].    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1c688dc0" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="81" nType="PortionType::Text" nHeight="276" nWidth="7578" Portion="To contractors, service providers, and other third parties we use to support our "/>
+    <LineBreak nWidth="7938" Line="&#xB7;To contractors, service providers, and other third parties we use to support our "/>
+    <Text nLength="84" nType="PortionType::Lay" nHeight="276" nWidth="8224" Portion="business[ and who are bound by contractual obligations to keep personal information "/>
+    <LineBreak nWidth="8224" Line="business[ and who are bound by contractual obligations to keep personal information "/>
+    <Text nLength="80" nType="PortionType::Lay" nHeight="276" nWidth="7498" Portion="confidential and use it only for the purposes for which we disclose it to them]."/>
+    <LineBreak nWidth="7498" Line="confidential and use it only for the purposes for which we disclose it to them]."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d50d0" id="1118" symbol="11SwTextFrame" next="1120" prev="1117" upper="1156" txtNodeIndex="88" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="68116" width="9360" height="1500" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="1380"/>
+    </infos>
+To a buyer or other successor in the event of a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of [COMPANY NAME]'s assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which personal information held by [COMPANY NAME] about our Website users is among the assets transferred.    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1bb1c5d0" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="84" nType="PortionType::Text" nHeight="276" nWidth="7777" Portion="To a buyer or other successor in the event of a merger, divestiture, restructuring, "/>
+    <LineBreak nWidth="8137" Line="&#xB7;To a buyer or other successor in the event of a merger, divestiture, restructuring, "/>
+    <Text nLength="82" nType="PortionType::Lay" nHeight="276" nWidth="7965" Portion="reorganization, dissolution, or other sale or transfer of some or all of [COMPANY "/>
+    <LineBreak nWidth="7965" Line="reorganization, dissolution, or other sale or transfer of some or all of [COMPANY "/>
+    <Text nLength="85" nType="PortionType::Lay" nHeight="276" nWidth="8181" Portion="NAME]'s assets, whether as a going concern or as part of bankruptcy, liquidation, or "/>
+    <LineBreak nWidth="8181" Line="NAME]'s assets, whether as a going concern or as part of bankruptcy, liquidation, or "/>
+    <Text nLength="79" nType="PortionType::Lay" nHeight="276" nWidth="8425" Portion="similar proceeding, in which personal information held by [COMPANY NAME] about "/>
+    <LineBreak nWidth="8425" Line="similar proceeding, in which personal information held by [COMPANY NAME] about "/>
+    <Text nLength="50" nType="PortionType::Lay" nHeight="276" nWidth="4785" Portion="our Website users is among the assets transferred."/>
+    <LineBreak nWidth="4785" Line="our Website users is among the assets transferred."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d5330" id="1120" symbol="11SwTextFrame" next="1121" prev="1118" upper="1156" txtNodeIndex="89" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="69616" width="9360" height="948" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="828"/>
+    </infos>
+To fulfill the purpose for which you provide it. For example, if you give us an email address to use the &quot;email a friend&quot; feature of our Website, we will transmit the contents of that email and your email address to the recipients.    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1c68e000" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="86" nType="PortionType::Text" nHeight="276" nWidth="8138" Portion="To fulfill the purpose for which you provide it. For example, if you give us an email "/>
+    <LineBreak nWidth="8498" Line="&#xB7;To fulfill the purpose for which you provide it. For example, if you give us an email "/>
+    <Text nLength="90" nType="PortionType::Lay" nHeight="276" nWidth="8453" Portion="address to use the &quot;email a friend&quot; feature of our Website, we will transmit the contents "/>
+    <LineBreak nWidth="8453" Line="address to use the &quot;email a friend&quot; feature of our Website, we will transmit the contents "/>
+    <Text nLength="55" nType="PortionType::Lay" nHeight="276" nWidth="5145" Portion="of that email and your email address to the recipients."/>
+    <LineBreak nWidth="5145" Line="of that email and your email address to the recipients."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d5460" id="1121" symbol="11SwTextFrame" next="1122" prev="1120" upper="1156" txtNodeIndex="90" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="70564" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+For any other purpose disclosed by us when you provide the information.    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1c6ce870" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="71" nType="PortionType::Text" nHeight="276" nWidth="7039" Portion="For any other purpose disclosed by us when you provide the information."/>
+    <LineBreak nWidth="7399" Line="&#xB7;For any other purpose disclosed by us when you provide the information."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d5590" id="1122" symbol="11SwTextFrame" next="1129" prev="1121" upper="1156" txtNodeIndex="91" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="70960" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+With your consent.    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1c6ccf30" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="18" nType="PortionType::Text" nHeight="276" nWidth="1833" Portion="With your consent."/>
+    <LineBreak nWidth="2193" Line="&#xB7;With your consent."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d64b0" id="1129" symbol="11SwTextFrame" next="1130" prev="1122" upper="1156" txtNodeIndex="92" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="71356" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="276"/>
+    </infos>
+    <Text nLength="0" nType="PortionType::Para" nHeight="276"/>
+    <LineBreak/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d65e0" id="1130" symbol="11SwTextFrame" next="1131" prev="1129" upper="1156" txtNodeIndex="93" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="71752" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+We may also disclose your personal information:    <Text nLength="47" nType="PortionType::Para" nHeight="276" nWidth="4719" Portion="We may also disclose your personal information:"/>
+    <LineBreak nWidth="4719" Line="We may also disclose your personal information:"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d6710" id="1131" symbol="11SwTextFrame" next="1132" prev="1130" upper="1156" txtNodeIndex="94" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="72148" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="552"/>
+    </infos>
+To comply with any court order, law, or legal process, including to respond to any government or regulatory request.    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf19e2cf20" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="83" nType="PortionType::Text" nHeight="276" nWidth="7958" Portion="To comply with any court order, law, or legal process, including to respond to any "/>
+    <LineBreak nWidth="8318" Line="&#xB7;To comply with any court order, law, or legal process, including to respond to any "/>
+    <Text nLength="33" nType="PortionType::Lay" nHeight="276" nWidth="3266" Portion="government or regulatory request."/>
+    <LineBreak nWidth="3266" Line="government or regulatory request."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d6840" id="1132" symbol="11SwTextFrame" next="1133" prev="1131" upper="1156" txtNodeIndex="95" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="72820" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="552"/>
+    </infos>
+To enforce or apply our terms of use https://docs.statetrace.com/terms_of_use.pdf and other agreements, including for billing and collection purposes.    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1bbdc800" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="86" nType="PortionType::Text" nHeight="276" nWidth="8324" Portion="To enforce or apply our terms of use https://docs.statetrace.com/terms_of_use.pdf and "/>
+    <LineBreak nWidth="8684" Line="&#xB7;To enforce or apply our terms of use https://docs.statetrace.com/terms_of_use.pdf and "/>
+    <Text nLength="64" nType="PortionType::Lay" nHeight="276" nWidth="6085" Portion="other agreements, including for billing and collection purposes."/>
+    <LineBreak nWidth="6085" Line="other agreements, including for billing and collection purposes."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d6970" id="1133" symbol="11SwTextFrame" next="1134" prev="1132" upper="1156" txtNodeIndex="96" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="73492" width="9360" height="1224" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="1104"/>
+    </infos>
+If we believe disclosure is necessary or appropriate to protect the rights, property, or safety of Southern California Software Labs, our customers, or others. [This includes exchanging information with other companies and organizations for the purposes of fraud protection and credit risk reduction.]    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf11a74000" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="89" nType="PortionType::Text" nHeight="276" nWidth="8157" Portion="If we believe disclosure is necessary or appropriate to protect the rights, property, or "/>
+    <LineBreak nWidth="8517" Line="&#xB7;If we believe disclosure is necessary or appropriate to protect the rights, property, or "/>
+    <Text nLength="10" nType="PortionType::Text" nHeight="276" nWidth="893" Portion="safety of "/>
+    <Text nLength="33" nType="PortionType::Text" nHeight="276" nWidth="3353" Portion="Southern California Software Labs"/>
+    <Text nLength="43" nType="PortionType::Text" nHeight="276" nWidth="3986" Portion=", our customers, or others. [This includes "/>
+    <LineBreak nWidth="8232" Line="safety of Southern California Software Labs, our customers, or others. [This includes "/>
+    <Text nLength="87" nType="PortionType::Text" nHeight="276" nWidth="8618" Portion="exchanging information with other companies and organizations for the purposes of fraud"/>
+    <Text nLength="1" nType="PortionType::Hole" Portion=" "/>
+    <LineBreak nWidth="8618" Line="exchanging information with other companies and organizations for the purposes of fraud "/>
+    <Text nLength="38" nType="PortionType::Lay" nHeight="276" nWidth="3512" Portion="protection and credit risk reduction.]"/>
+    <LineBreak nWidth="3512" Line="protection and credit risk reduction.]"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d6aa0" id="1134" symbol="11SwTextFrame" next="1135" prev="1133" upper="1156" txtNodeIndex="97" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="74716" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+Choices About How We Use and Disclose Your Information    <Text nLength="54" nType="PortionType::Para" nHeight="276" nWidth="6120" Portion="Choices About How We Use and Disclose Your Information"/>
+    <LineBreak nWidth="6120" Line="Choices About How We Use and Disclose Your Information"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d6bd0" id="1135" symbol="11SwTextFrame" next="1136" prev="1134" upper="1156" txtNodeIndex="98" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="75112" width="9360" height="672" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="552"/>
+    </infos>
+We strive to provide you with choices regarding the personal information you provide to us. We have created mechanisms to provide you with the following control over your information:     <Text nLength="95" nType="PortionType::Para" nHeight="276" nWidth="9297" Portion="We strive to provide you with choices regarding the personal information you provide to us. We "/>
+    <LineBreak nWidth="9297" Line="We strive to provide you with choices regarding the personal information you provide to us. We "/>
+    <Text nLength="89" nType="PortionType::Lay" nHeight="276" nWidth="8791" Portion="have created mechanisms to provide you with the following control over your information: "/>
+    <LineBreak nWidth="8791" Line="have created mechanisms to provide you with the following control over your information: "/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d6d00" id="1136" symbol="11SwTextFrame" next="1140" prev="1135" upper="1156" txtNodeIndex="99" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="75784" width="9360" height="1500" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="360" top="120" width="9000" height="1380"/>
+    </infos>
+Tracking Technologies and Advertising. You can set your browser to refuse all or some browser cookies, or to alert you when cookies are being sent. To learn how you can manage your Flash cookie settings, visit the Flash player settings page on Adobe's website. If you disable or refuse cookies, please note that some parts of this site may then be inaccessible or not function properly.    <Special nLength="0" nType="PortionType::Bullet" rText="&#xB7;" nHeight="240">
+     <SwFont ptr="0x55bf1ceef570" color="00000000"/>
+    </Special>
+    <Text nLength="0" nType="PortionType::TabLeft" nHeight="218" nWidth="261"/>
+    <Text nLength="38" nType="PortionType::Text" nHeight="276" nWidth="4107" Portion="Tracking Technologies and Advertising."/>
+    <Text nLength="43" nType="PortionType::Text" nHeight="276" nWidth="4039" Portion=" You can set your browser to refuse all or "/>
+    <LineBreak nWidth="8506" Line="&#xB7;Tracking Technologies and Advertising. You can set your browser to refuse all or "/>
+    <Text nLength="87" nType="PortionType::Text" nHeight="276" nWidth="8584" Portion="some browser cookies, or to alert you when cookies are being sent. To learn how you can"/>
+    <Text nLength="1" nType="PortionType::Hole" Portion=" "/>
+    <LineBreak nWidth="8584" Line="some browser cookies, or to alert you when cookies are being sent. To learn how you can "/>
+    <Text nLength="83" nType="PortionType::Text" nHeight="276" nWidth="7948" Portion="manage your Flash cookie settings, visit the Flash player settings page on Adobe's "/>
+    <LineBreak nWidth="7948" Line="manage your Flash cookie settings, visit the Flash player settings page on Adobe's "/>
+    <Text nLength="7" nType="PortionType::Text" nHeight="276" nWidth="733" Portion="website"/>
+    <Text nLength="85" nType="PortionType::Text" nHeight="276" nWidth="7851" Portion=". If you disable or refuse cookies, please note that some parts of this site may then"/>
+    <Text nLength="1" nType="PortionType::Hole" Portion=" "/>
+    <LineBreak nWidth="8584" Line="website. If you disable or refuse cookies, please note that some parts of this site may then "/>
+    <Text nLength="41" nType="PortionType::Lay" nHeight="276" nWidth="3865" Portion="be inaccessible or not function properly."/>
+    <LineBreak nWidth="3865" Line="be inaccessible or not function properly."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d71c0" id="1140" symbol="11SwTextFrame" next="1205" prev="1136" upper="1156" txtNodeIndex="100" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="77284" width="9360" height="1224" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="1104"/>
+    </infos>
+We do not control third parties' collection or use of your information to serve interest-based advertising. However these third parties may provide you with ways to choose not to have your information collected or used in this way. You can opt out of receiving targeted ads from members of the Network Advertising Initiative (&quot;NAI&quot;) on the NAI's website.    <Text nLength="95" nType="PortionType::Para" nHeight="276" nWidth="8861" Portion="We do not control third parties' collection or use of your information to serve interest-based "/>
+    <LineBreak nWidth="8861" Line="We do not control third parties' collection or use of your information to serve interest-based "/>
+    <Text nLength="94" nType="PortionType::Lay" nHeight="276" nWidth="9218" Portion="advertising. However these third parties may provide you with ways to choose not to have your "/>
+    <LineBreak nWidth="9218" Line="advertising. However these third parties may provide you with ways to choose not to have your "/>
+    <Text nLength="90" nType="PortionType::Lay" nHeight="276" nWidth="8604" Portion="information collected or used in this way. You can opt out of receiving targeted ads from "/>
+    <LineBreak nWidth="8604" Line="information collected or used in this way. You can opt out of receiving targeted ads from "/>
+    <Text nLength="48" nType="PortionType::Text" nHeight="276" nWidth="4750" Portion="members of the Network Advertising Initiative (&quot;"/>
+    <Text nLength="3" nType="PortionType::Text" nHeight="276" nWidth="440" Portion="NAI"/>
+    <Text nLength="16" nType="PortionType::Text" nHeight="276" nWidth="1514" Portion="&quot;) on the NAI's "/>
+    <Text nLength="7" nType="PortionType::Text" nHeight="276" nWidth="733" Portion="website"/>
+    <Text nLength="1" nType="PortionType::Text" nHeight="276" nWidth="60" Portion="."/>
+    <LineBreak nWidth="7497" Line="members of the Network Advertising Initiative (&quot;NAI&quot;) on the NAI's website."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d6e30" id="1205" symbol="11SwTextFrame" prev="1140" upper="1156" txtNodeIndex="101" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="78508" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+    <Text nLength="0" nType="PortionType::Para" nHeight="276"/>
+    <LineBreak/>
+    <Finish/>
+   </txt>
+  </body>
+  <footer ptr="0x55bf19c39260" id="1157" symbol="13SwFooterFrame" prev="1156" upper="1155" lower="1158" fmtName="Right footer" fmtPtr="0x55bf1b888c10">
+   <infos>
+    <bounds left="30645" top="79180" width="9360" height="720" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+    <prtBounds left="0" top="324" width="9360" height="396"/>
+   </infos>
+   <txt ptr="0x55bf1b8d8390" id="1158" symbol="11SwTextFrame" upper="1157" txtNodeIndex="6" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="79504" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+    <anchored>
+     <fly ptr="0x55bf1b2de150" id="1159" symbol="19SwFlyAtContentFrame" lower="1160">
+      <infos>
+       <bounds left="35258" top="79505" width="135" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+       <prtBounds left="0" top="0" width="135" height="396"/>
+      </infos>
+      <txt ptr="0x55bf1b8d85e0" id="1160" symbol="11SwTextFrame" upper="1159" txtNodeIndex="12" WritingMode="Horizontal">
+       <infos>
+        <bounds left="35258" top="79505" width="135" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+        <prtBounds left="0" top="120" width="135" height="276"/>
+       </infos>
+*       <Special nLength="1" nType="PortionType::Field" rText="5"/>
+       <LineBreak nWidth="134" Line="5"/>
+       <Finish/>
+      </txt>
+     </fly>
+    </anchored>
+**    <Text nLength="1" nType="PortionType::TabCenter" nHeight="276" nWidth="4680" Portion="*"/>
+    <Text nLength="1" nType="PortionType::TabRight" nHeight="276" nWidth="4680" Portion="*"/>
+    <LineBreak nWidth="9360" Line="**"/>
+    <Finish/>
+   </txt>
+  </footer>
+ </page>
+ <page ptr="0x55bf1bb41f80" id="1175" symbol="11SwPageFrame" prev="1155" upper="1028" lower="1176">
+  <page_status ValidFlyLayout="true" ValidFlyContent="true" ValidFlyInCnt="true" ValidLayout="true" ValidContent="true"/>
+  <infos>
+   <bounds left="29205" top="80904" width="12240" height="15840" mbFixSize="true" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+   <prtBounds left="1440" top="1440" width="9360" height="13680"/>
+  </infos>
+  <body ptr="0x55bf1b5c7e00" id="1176" symbol="11SwBodyFrame" next="1177" upper="1175" lower="1161">
+   <infos>
+    <bounds left="30645" top="82344" width="9360" height="12960" mbFixSize="true" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+    <prtBounds left="0" top="0" width="9360" height="12960"/>
+   </infos>
+   <txt ptr="0x55bf1b8d9360" id="1161" symbol="11SwTextFrame" next="1162" upper="1176" txtNodeIndex="102" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="82344" width="9360" height="276" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="0" width="9360" height="276"/>
+    </infos>
+Changes to Our Privacy Policy    <Text nLength="29" nType="PortionType::Para" nHeight="276" nWidth="3160" Portion="Changes to Our Privacy Policy"/>
+    <LineBreak nWidth="3160" Line="Changes to Our Privacy Policy"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d9490" id="1162" symbol="11SwTextFrame" next="1163" prev="1161" upper="1176" txtNodeIndex="103" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="82620" width="9360" height="2328" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="2208"/>
+    </infos>
+It is our policy to post any changes we make to our privacy policy on this page [with a notice that the privacy policy has been updated on the Website home page]. If we make material changes to how we treat our users' personal information, we will notify you [by email to the [primary] email address specified in your account] [and/or] [through a notice on the Website home page]/[OTHER NOTIFICATION METHOD]]. The date the privacy policy was last revised is identified at the top of the page. You are responsible for ensuring we have an up-to-date active and deliverable email address for you, and for periodically visiting our Website and this privacy policy to check for any changes.    <Text nLength="99" nType="PortionType::Text" nHeight="276" nWidth="9357" Portion="It is our policy to post any changes we make to our privacy policy on this page [with a notice that"/>
+    <Text nLength="1" nType="PortionType::Hole" Portion=" "/>
+    <LineBreak nWidth="9357" Line="It is our policy to post any changes we make to our privacy policy on this page [with a notice that "/>
+    <Text nLength="94" nType="PortionType::Lay" nHeight="276" nWidth="9316" Portion="the privacy policy has been updated on the Website home page]. If we make material changes to "/>
+    <LineBreak nWidth="9316" Line="the privacy policy has been updated on the Website home page]. If we make material changes to "/>
+    <Text nLength="97" nType="PortionType::Text" nHeight="276" nWidth="9314" Portion="how we treat our users' personal information, we will notify you [by email to the [primary] email"/>
+    <Text nLength="1" nType="PortionType::Hole" Portion=" "/>
+    <LineBreak nWidth="9314" Line="how we treat our users' personal information, we will notify you [by email to the [primary] email "/>
+    <Text nLength="82" nType="PortionType::Lay" nHeight="276" nWidth="7964" Portion="address specified in your account] [and/or] [through a notice on the Website home "/>
+    <LineBreak nWidth="7964" Line="address specified in your account] [and/or] [through a notice on the Website home "/>
+    <Text nLength="84" nType="PortionType::Lay" nHeight="276" nWidth="9085" Portion="page]/[OTHER NOTIFICATION METHOD]]. The date the privacy policy was last revised is "/>
+    <LineBreak nWidth="9085" Line="page]/[OTHER NOTIFICATION METHOD]]. The date the privacy policy was last revised is "/>
+    <Text nLength="97" nType="PortionType::Lay" nHeight="276" nWidth="9143" Portion="identified at the top of the page. You are responsible for ensuring we have an up-to-date active "/>
+    <LineBreak nWidth="9143" Line="identified at the top of the page. You are responsible for ensuring we have an up-to-date active "/>
+    <Text nLength="98" nType="PortionType::Lay" nHeight="276" nWidth="9277" Portion="and deliverable email address for you, and for periodically visiting our Website and this privacy "/>
+    <LineBreak nWidth="9277" Line="and deliverable email address for you, and for periodically visiting our Website and this privacy "/>
+    <Text nLength="32" nType="PortionType::Lay" nHeight="276" nWidth="3105" Portion="policy to check for any changes."/>
+    <LineBreak nWidth="3105" Line="policy to check for any changes."/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d95c0" id="1163" symbol="11SwTextFrame" next="1164" prev="1162" upper="1176" txtNodeIndex="104" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="84948" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+Contact Information    <Text nLength="19" nType="PortionType::Para" nHeight="276" nWidth="2127" Portion="Contact Information"/>
+    <LineBreak nWidth="2127" Line="Contact Information"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d96f0" id="1164" symbol="11SwTextFrame" next="1165" prev="1163" upper="1176" txtNodeIndex="105" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="85344" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+To ask questions or comment about this privacy policy and our privacy practices, contact us at:     <Text nLength="96" nType="PortionType::Para" nHeight="276" nWidth="9190" Portion="To ask questions or comment about this privacy policy and our privacy practices, contact us at: "/>
+    <LineBreak nWidth="9190" Line="To ask questions or comment about this privacy policy and our privacy practices, contact us at: "/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d9820" id="1165" symbol="11SwTextFrame" next="1166" prev="1164" upper="1176" txtNodeIndex="106" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="85740" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+info@statetrace.com    <Text nLength="19" nType="PortionType::Para" nHeight="276" nWidth="1987" Portion="info@statetrace.com"/>
+    <LineBreak nWidth="1987" Line="info@statetrace.com"/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d9950" id="1166" symbol="11SwTextFrame" next="1169" prev="1165" upper="1176" txtNodeIndex="107" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="86136" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+    <Text nLength="0" nType="PortionType::Para" nHeight="276"/>
+    <LineBreak/>
+    <Finish/>
+   </txt>
+   <txt ptr="0x55bf1b8d9ce0" id="1169" symbol="11SwTextFrame" prev="1166" upper="1176" txtNodeIndex="108" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="86532" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+     <Text nLength="1" nType="PortionType::Para" nHeight="276" nWidth="60" Portion=" "/>
+    <LineBreak nWidth="60" Line=" "/>
+    <Finish/>
+   </txt>
+  </body>
+  <footer ptr="0x55bf1b258980" id="1177" symbol="13SwFooterFrame" prev="1176" upper="1175" lower="1178" fmtName="Right footer" fmtPtr="0x55bf1b888c10">
+   <infos>
+    <bounds left="30645" top="95304" width="9360" height="720" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+    <prtBounds left="0" top="324" width="9360" height="396"/>
+   </infos>
+   <txt ptr="0x55bf1bb438a0" id="1178" symbol="11SwTextFrame" upper="1177" txtNodeIndex="6" WritingMode="Horizontal">
+    <infos>
+     <bounds left="30645" top="95628" width="9360" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+     <prtBounds left="0" top="120" width="9360" height="276"/>
+    </infos>
+    <anchored>
+     <fly ptr="0x55bf1b8d8710" id="1179" symbol="19SwFlyAtContentFrame" lower="1180">
+      <infos>
+       <bounds left="35258" top="95629" width="135" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+       <prtBounds left="0" top="0" width="135" height="396"/>
+      </infos>
+      <txt ptr="0x55bf1bb4c750" id="1180" symbol="11SwTextFrame" upper="1179" txtNodeIndex="12" WritingMode="Horizontal">
+       <infos>
+        <bounds left="35258" top="95629" width="135" height="396" mbFixSize="false" mbValidPos="true" mbValidSize="true" mbValidPrtArea="true"/>
+        <prtBounds left="0" top="120" width="135" height="276"/>
+       </infos>
+*       <Special nLength="1" nType="PortionType::Field" rText="6"/>
+       <LineBreak nWidth="134" Line="6"/>
+       <Finish/>
+      </txt>
+     </fly>
+    </anchored>
+**    <Text nLength="1" nType="PortionType::TabCenter" nHeight="276" nWidth="4680" Portion="*"/>
+    <Text nLength="1" nType="PortionType::TabRight" nHeight="276" nWidth="4680" Portion="*"/>
+    <LineBreak nWidth="9360" Line="**"/>
+    <Finish/>
+   </txt>
+  </footer>
+ </page>
+</root>
