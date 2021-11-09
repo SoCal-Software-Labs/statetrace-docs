@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstatetrace_docs=self.webpackChunkstatetrace_docs||[]).push([[677],{2858:function(s){s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/postgres","name":"postgres","count":1,"permalink":"/blog/tags/postgres"}')}}]);

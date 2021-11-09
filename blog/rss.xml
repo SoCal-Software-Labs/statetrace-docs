@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Statetrace Blog</title>
-        <link>https://docs.statetrace.com/statetrace-docs/blog</link>
+        <link>https://docs.statetrace.com/blog</link>
         <description>Statetrace Blog</description>
         <lastBuildDate>Fri, 12 Nov 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
             <title><![CDATA[Time for a Change]]></title>
-            <link>https://docs.statetrace.com/statetrace-docs/blog/time-for-a-change</link>
+            <link>https://docs.statetrace.com/blog/time-for-a-change</link>
             <guid>time-for-a-change</guid>
             <pubDate>Fri, 12 Nov 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Data auditing with Statetrace]]></description>
