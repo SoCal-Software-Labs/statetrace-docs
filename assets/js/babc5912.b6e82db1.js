@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstatetrace_docs=self.webpackChunkstatetrace_docs||[]).push([[72],{6745:function(s){s.exports=JSON.parse('{"allTagsPath":"/statetrace-docs/blog/tags","slug":"/statetrace-docs/blog/tags/mysql","name":"mysql","count":1,"permalink":"/statetrace-docs/blog/tags/mysql"}')}}]);
