@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Statetrace Blog</title>
+        <link>https://docs.statetrace.com/blog</link>
+        <description>Statetrace Blog</description>
+        <lastBuildDate>Fri, 12 Nov 2021 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Time for a Change]]></title>
+            <link>https://docs.statetrace.com/blog/time-for-a-change</link>
+            <guid>time-for-a-change</guid>
+            <pubDate>Fri, 12 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Data auditing with Statetrace]]></description>
+            <content:encoded><![CDATA[<p>The world of application today is broken. We treat our application data as a second-citizen citizen, only keeping the most recent version data available and throwing away the record about how the data got there. The world is reluctant to change because it is a hard problem. Statetrace is here to make it easier.</p><p><img src="./docusaurus-plushie-banner.jpeg" alt="Docusaurus Plushie"/></p><p>Data auditing is the future of application development. It enables teams to solve tougher problems faster. With Statetrace, teams can develop an auditing solution in hours instead of months and deliver reliable answers to their customers. Statetrace records and annotates row level changes from your databases and pipes them into webhooks, data warehouses, and indexes them for fast searches.</p><h2>Solving the &quot;Who dunnit?&quot;</h2><p>Nobody wants to answer the dreaded customer complaint &quot;Who changed my data?&quot; Even if the customer was the last one to change the data, without a proper auditing solution one might not be able to give a reliable answer. Having uncertainty around the history of data puts a company&#x27;s reputation at risk.</p><p>Statetrace puts the answers to these questions at your fingertips. With an annotated audit log, each row change is associated with meta-information about who in the application changed the data. Pipe these changes into the destination of your choice for easy searching.</p><h2>Github for Code. Statetrace for Data.</h2><p>Version control for code is integral to the development process. Companies spend billions of dollars every year on developer salaries and want to keep that investment of developer output. Data about what the code was and who changed it is so valuable that a multi-billion dollar industry has grown to support those needs. </p><p>However, companies are throwing away money when it comes to their actual bread and butter: the application data. The stream of changes from application data are a gold mine for solving problems and answering questions. But the vast majority of companies today throw away these changes, because they have little value as they don&#x27;t connect the change to who made the change. You don&#x27;t know what type of questions you might want to know in the future, and once you throw it away, its gone for ever.</p><p>Statetrace is solving this problem. Statetrace makes the stream of changes useful by associating the change with who changed it.</p><h2>Compliance focused</h2><p>Your data belongs with you. Statetrace is designed to be run on-prem, leaving you in complete control of your data. Whether you are running a HIPAA deployment or need to stay SOC 2 compliant, Statetrace works with your compliance team.</p><h2>The future</h2><p>We are working to deliver the highest quality auditing experience. If you require a UI or need enterprise level data controls reach out at <a href="mailto:kyle@statetrace.com">kyle@statetrace.com</a> and I would love to tell you about what we are working on.</p>]]></content:encoded>
+        </item>
+    </channel>
+</rss>
