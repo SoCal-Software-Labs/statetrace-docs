@@ -8,7 +8,7 @@
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
-            <title><![CDATA[Build an Elixir Redis Server thats 100x faster than HTTP]]></title>
+            <title><![CDATA[Build an Elixir Redis Server that's 100x faster than HTTP]]></title>
             <link>https://docs.statetrace.com/blog/redis-server</link>
             <guid>redis-server</guid>
             <pubDate>Tue, 09 Nov 2021 00:00:00 GMT</pubDate>

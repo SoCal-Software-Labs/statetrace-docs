@@ -8,7 +8,7 @@
     <subtitle>Statetrace Blog</subtitle>
     <icon>https://docs.statetrace.com/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[Build an Elixir Redis Server thats 100x faster than HTTP]]></title>
+        <title type="html"><![CDATA[Build an Elixir Redis Server that's 100x faster than HTTP]]></title>
         <id>redis-server</id>
         <link href="https://docs.statetrace.com/blog/redis-server"/>
         <updated>2021-11-09T00:00:00.000Z</updated>
