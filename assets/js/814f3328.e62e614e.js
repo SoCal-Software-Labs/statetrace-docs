@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstatetrace_docs=self.webpackChunkstatetrace_docs||[]).push([[535],{5641:function(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Build an Elixir Redis Server thats 100x faster than HTTP","permalink":"/blog/redis-server"},{"title":"Time for a Change - Announcing Statetrace","permalink":"/blog/time-for-a-change"}]}')}}]);

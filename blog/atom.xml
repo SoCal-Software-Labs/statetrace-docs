@@ -8,12 +8,12 @@
     <subtitle>Statetrace Blog</subtitle>
     <icon>https://docs.statetrace.com/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[Build a Redis Server with Elixir in 10min]]></title>
+        <title type="html"><![CDATA[Build an Elixir Redis Server thats 100x faster than HTTP]]></title>
         <id>redis-server</id>
         <link href="https://docs.statetrace.com/blog/redis-server"/>
         <updated>2021-11-09T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Build a redis server in Elixir]]></summary>
-        <content type="html"><![CDATA[<p>Need a fast server and client? HTTP too slow? Try the Redis Protocol for lightning fast, low-overhead API calls. It&#x27;s easy to implement and nearly every language has mature Redis clients that can connect.</p><div style="background:url(/img/ipanema.jpg);background-size:150px;width:100%;height:200px;margin-top:30px;margin-bottom:30px"></div><p><em>This project was inspired by <a href="https://github.com/hansonkd/Tino/">Tino</a>, the Redis/MsgPack framework for Python.</em></p><p>Building a server based on Redis Protocol from scratch can sound intimidating. But if you know what you are doing it can be relatively straight forward to implement. A huge shortcut involves using <a href="https://github.com/whatyouhide/redix">Redix</a> to parse the binary stream in a fast and efficient manner.</p><p>In this article we will implement a Redis echo server and explain how to extend the server to handle your own custom commands.</p><p>This blog post assumes you are familar with Elixir and its Application structure. If you want to learn more about TCP connections and supervision, read the <a href="https://elixir-lang.org/getting-started/mix-otp/task-and-gen-tcp.html">official Elixir article</a>.</p><h2>Advantages</h2><p>First before we get started, lets discuss some of the advantages. Building a server based on the Redis protocol means you are cutting out a lot of overhead (the HTTP protocol is verbose). Nearly every language has a high-performance client built for Redis that allows pipelining. Pipelining allows you to combine commands as you send them for even greater efficiency. Most redis clients also support pooling for even higher throughput.</p><p>With these built in features, you don&#x27;t have to do very much to talk to your server in an extremely high performance fashion.</p><h2>Reading the TCP connection</h2><p>To get started building our server, we will need to accept a TCP connection. We do this by looping over <code>:gen_tcp.accept</code> and spawning a task.</p><pre><code class="language-elixir">defmodule MyRedisServer.Redis do
+        <content type="html"><![CDATA[<p>Need a fast server and client? HTTP too slow? Try the Redis Protocol for lightning fast, low-overhead API calls. It&#x27;s easy to implement and nearly every language has mature Redis clients that can connect.</p><div style="background:url(/img/ipanema.jpg);background-size:150px;width:100%;height:200px;margin-top:30px;margin-bottom:30px"></div><p><em>This project was inspired by <a href="https://github.com/hansonkd/Tino/">Tino</a>, the Redis/MsgPack framework for Python.</em></p><p>Building a server based on Redis Protocol from scratch can sound intimidating. But if you know what you are doing it can be relatively straight forward to implement. A huge shortcut involves using <a href="https://github.com/whatyouhide/redix">Redix</a> to parse the binary stream in a fast and efficient manner.</p><p>In this article we will implement a Redis echo server and explain how to extend the server to handle your own custom commands.</p><p>This blog post assumes you are familar with Elixir and its Application structure. If you want to learn more about TCP connections and supervision, read the <a href="https://elixir-lang.org/getting-started/mix-otp/task-and-gen-tcp.html">official Elixir article</a>.</p><h2>Advantages</h2><p>First before we get started, lets discuss some of the advantages. Building a server based on the RESP (the Redis protocol) means you are cutting out a lot of overhead associated with HTTP. In addtion to a more lean protocol, nearly every language has a high-performance client built for Redis that allows pipelining. Pipelining combines commands as you send them for even greater efficiency. Most redis clients even support pooling for working at high concurrencies.</p><p>With these built in features, you don&#x27;t have to do very much to talk to your server in an extremely high performance fashion. You can see a performance boost of over <strong>100x</strong> using RESP instead of HTTP.</p><h2>Reading the TCP connection</h2><p>To get started building our server, we will need to accept a TCP connection. We do this by looping over <code>:gen_tcp.accept</code> and spawning a task.</p><pre><code class="language-elixir">defmodule MyRedisServer.Redis do
   require Logger
   def accept(port) do
     {:ok, socket} = :gen_tcp.listen(port, [:binary, active: false, reuseaddr: true])
@@ -33,29 +33,22 @@
 
     loop_acceptor(socket)
   end
-
-  defp read_line(socket) do
-    {:ok, data} = :gen_tcp.recv(socket, 0)
-    data
-  end
 end
 </code></pre><p>Now we are ready to read packets from the connection. Elixir&#x27;s Redis client Redix includes an parser for us to use.</p><pre><code class="language-elixir">defmodule MyRedisServer.Redis do
   ...
 
   defp serve(socket, %{continuation: nil}) do
-    data =
-      socket
-      |&gt; read_line()
-
-    handle_parse(socket, Redix.Protocol.parse(data))
+    case :gen_tcp.recv(socket, 0) do
+      {:ok, data} -&gt;  handle_parse(socket, Redix.Protocol.parse(data))
+      {:error, :closed} -&gt; :ok
+    end
   end
 
   defp serve(socket, %{continuation: fun}) do
-    data =
-      socket
-      |&gt; read_line()
-
-    handle_parse(socket, fun.(data))
+    case :gen_tcp.recv(socket, 0) do
+      {:ok, data} -&gt;  handle_parse(socket, fun.(data))
+      {:error, :closed} -&gt; :ok
+    end
   end
 emd
 </code></pre><p>Handling the parse result is straight forward. Either an entire message was processed and we can handle it, and respond, or a partial message was recieved and we need to wait for more data.</p><pre><code class="language-elixir">defmodule MyRedisServer.Redis do
@@ -103,24 +96,17 @@ end
   end
 
   defp serve(socket, %{continuation: nil}) do
-    data =
-      socket
-      |&gt; read_line()
-
-    handle_parse(socket, Redix.Protocol.parse(data))
+    case :gen_tcp.recv(socket, 0) do
+      {:ok, data} -&gt;  handle_parse(socket, Redix.Protocol.parse(data))
+      {:error, :closed} -&gt; :ok
+    end
   end
 
   defp serve(socket, %{continuation: fun}) do
-    data =
-      socket
-      |&gt; read_line()
-
-    handle_parse(socket, fun.(data))
-  end
-
-  defp read_line(socket) do
-    {:ok, data} = :gen_tcp.recv(socket, 0)
-    data
+    case :gen_tcp.recv(socket, 0) do
+      {:ok, data} -&gt;  handle_parse(socket, fun.(data))
+      {:error, :closed} -&gt; :ok
+    end
   end
 
   defp handle_parse(socket, {:continuation, fun}) do
@@ -161,7 +147,7 @@ end
     Supervisor.start_link(children, opts)
   end
 end
-</code></pre><h2>Connecting from a client</h2><p>Start your mix project and you should be able to connect to redis on 3211 and the command should echo what you send it.</p><pre><code class="language-elixir">&gt; {:ok, conn} = Redix.start_link(&quot;redis://localhost:3211/0&quot;, name: :redix)
+</code></pre><h2>Connecting from a client</h2><p>Start your mix project and you should be able to connect to redis on 3211 and the command should echo what you send it.</p><pre><code class="language-elixir">&gt; {:ok, conn} = Redix.start_link(&quot;redis://localhost:3211&quot;)
 &gt; Redix.command(conn, [&quot;COOL_COMMAND&quot;, &quot;123&quot;])
 {:ok, [&quot;COOL_COMMAND&quot;, &quot;123&quot;]}
 </code></pre><p>Adding commands to your new redis server is easy with pattern matching:</p><pre><code class="language-elixir">defmodule MyRedisServer.Redis do
@@ -169,10 +155,11 @@ end
 
   def handle([&quot;PUT&quot;, key, val]) do
     Cachex.put(:my_cachex, key, val)
+    [&quot;OK&quot;]
   end
 
   def handle([&quot;GET&quot;, key]) do
-    Cachex.get(:my_cachex, key)
+    [Cachex.get(:my_cachex, key)]
   end
 
   def handle([&quot;ECHO&quot;, msg]) do
@@ -189,7 +176,7 @@ end
   def handle([command, payload]) do
     case handle_command(command, MsgPax.unpack!(payload)) do
         {:error, e} -&gt; %Redix.Error{message: &quot;ERROR #{e}&quot;}
-        value -&gt; MspPax.pack!(value)
+        value -&gt; [MspPax.pack!(value)]
     end
   end
 
@@ -199,6 +186,7 @@ end
 
   defp handle_command(&quot;PUT&quot;, [key, val]) do
     Cachex.put(:my_cachex, key, val)
+    [&quot;OK&quot;]
   end
 
   defp handle_command(&quot;GET&quot;, key) do
@@ -213,7 +201,26 @@ end
     {:error, &quot;INVALID_COMMAND&quot;}
   end
 end
-</code></pre><h2>Conclusion</h2><p>We wrote a high-performance server based on the Redis API in around 10 minutes. This server can handle thousands of connections easily and has minimal overhead. One downside is that load balancing becomes more of a challenge when doing multi-node deploys when using a protocol other than HTTP.</p><p>However if you have a one or thousands of clients that need to communicate with a server in the fastest way possible, consider using Redis as your protocol of choice instead of HTTP.</p>]]></content>
+</code></pre><h2>Benchmark</h2><p>For this benchmark we will compare HTTP Phoenix to our Redis Server.</p><p>Our HTTP Phoenix Controllers:</p><pre><code class="language-elixir">  # GET -&gt; Text
+  def bench(conn, %{&quot;payload&quot; =&gt; payload, &quot;times&quot; =&gt; times}) when is_binary(times) do
+    text(conn, String.duplicate(payload, String.to_integer(times)))
+  end
+
+  # POST -&gt; JSON
+  def bench(conn, %{&quot;payload&quot; =&gt; payload, &quot;times&quot; =&gt; times}) do
+    json(conn, %{&quot;data&quot; =&gt; String.duplicate(payload, times)})
+  end
+</code></pre><p>and our Redis server:</p><pre><code class="language-elixir">  def handle([&quot;BENCH&quot;, payload, number]) do
+    [String.duplicate(payload, String.to_integer(number))]
+  end
+</code></pre><p>We will use <a href="https://github.com/sneako/finch">Finch</a> for the HTTP client, which labels itself as &quot;performance focused&quot;.</p><p>For the full benchmark see <a href="https://gist.github.com/hansonkd/cd34329fe4f346e680b39a17d9988af4">the source</a>.</p><p>We will remotely call our functions using the Finch HTTP pool, a single Redix connection, or a pool of Redix connections. We will also test pipelining vs calling each command individually for Redix. We will call our remote function 1000 times concurrently and ask it to duplicate the string <code>&quot;12345&amp;?\&quot;678,\n90&quot;</code>  100 times and respond.</p><pre><code class="language-bash">Name                           ips        average  deviation         median         99th %
+run_redix_pipeline           28.77       34.75 ms    ±63.17%       47.59 ms       92.07 ms
+redix_pool_pipelined         21.50       46.52 ms    ±25.66%       44.06 ms       87.94 ms
+redix_pool                   16.82       59.44 ms    ±24.66%       55.78 ms       99.85 ms
+redix                        13.69       73.04 ms     ±5.39%       72.03 ms       92.49 ms
+finch_get                     0.34     2956.85 ms     ±0.70%     2956.85 ms     2971.46 ms
+finch_post                    0.34     2958.42 ms     ±0.21%     2958.42 ms     2962.81 ms
+</code></pre><p>The results show that running Redis protocol is nearly 100x faster than relying on HTTP. By default Phoenix sends extra headers for the content type and other information. In addition there is extra overhead encoding and decoding the values for URL encoding and JSON.</p><p>Overall using Redis as a Protocol instead of HTTP results in orders of magnitude higher troughput.</p><h2>Conclusion</h2><p>We wrote a high-performance server based on the Redis Protocol in around 10 minutes. This server can handle thousands of connections easily and has minimal overhead. One downside is that load balancing becomes more of a challenge when doing multi-node deploys when using a protocol other than HTTP.</p><p>However if you have a one or thousands of clients that need to communicate with a server in the fastest way possible, consider using Redis as your protocol of choice instead of HTTP.</p>]]></content>
         <author>
             <name>Kyle Hanson</name>
             <uri>https://github.com/hansonkd</uri>
@@ -225,7 +232,7 @@ end
         <link href="https://docs.statetrace.com/blog/time-for-a-change"/>
         <updated>2021-11-08T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Data auditing with Statetrace]]></summary>
-        <content type="html"><![CDATA[<p>The world of application data today is broken. We treat our most valuable asset as a second-class citizen, only keeping the most recent version data available and throwing away how the data got there. It&#x27;s is a hard problem to fix. Statetrace is here to make it easier.</p><div style="background:url(/img/ipanema.jpg);background-size:150px;width:100%;height:200px;margin-top:30px;margin-bottom:30px"></div><p>Data auditing is the future of application development. It enables teams to solve tougher problems faster. With Statetrace, teams can develop an auditing solution in hours instead of months and start delivering reliable answers to their customers. Statetrace annotates row level changes from your databases, piping them into webhooks, into data warehouses, or indexing them for fast searches.</p><h2>Whats wrong today</h2><p>The world of auditing today has been stuck for decades. There exist <a href="https://django-simple-history.readthedocs.io/en/latest/">libraries</a> and <a href="https://github.com/etianen/django-reversion">tools</a> at the application layer to associate changes with who changed them, however these tools are deeply flawed. Because they work at the application layer, they miss things that don&#x27;t go through the application; like migrations or someone connected directly to the DB. More importantly they are strictly framework dependent and do not offer a general solution.</p><p>CDC pipelines capture the changes accurately but do not associate those changes with application meta information.</p><h2>How it works</h2><p>Statetrace connects to the <a href="https://www.postgresql.org/docs/10/logical-replication.html">logical replication</a> of Postgres or the <a href="https://dev.mysql.com/doc/internals/en/binary-log-overview.html">BinLog</a> of MySQL. By reading events directly from the replication log, Statetrace gets a 100% accurate history of your data. More importantly because it is intefacing with the database instead of the application, Statetrace can work with any framework or language with minimal configuration.</p><p>The application annotates transactions by writing to an annotations table in the same transaction that you change other data, associating session and user information with individual row changes.</p><h2>Solving the &quot;Who dunnit?&quot;</h2><p>Nobody wants to answer the dreaded customer complaint &quot;Who changed my data?&quot; Even if the customer was the last one to change the data, without a proper auditing solution one might not be able to give a reliable answer. Having uncertainty around the history of data puts a company&#x27;s reputation at risk.</p><p>Statetrace puts the answers to these questions at your fingertips. With an annotated audit log, each row change is associated with meta-information about who in the application changed the data. Pipe these changes into the destination of your choice for easy searching.</p><h2>Github for Code. Statetrace for Data.</h2><p>Version control for code is integral to the development process. Companies spend billions of dollars every year on developer salaries and want to keep that investment of developer output. Data about what the code was and who changed it is so valuable that a multi-billion dollar industry has grown to support those needs. </p><p>However, companies are throwing away money when it comes to their actual bread and butter: the application data. The stream of changes from application data are a gold mine for solving problems and answering questions. But the vast majority of companies today throw away these changes, because they have little value as they don&#x27;t connect the change to who made the change. This is bad, because you don&#x27;t know what type of questions you might want to know in the future and once you throw it away, its gone for ever.</p><p>Statetrace is solving this problem. Statetrace makes the stream of changes useful by associating the change with who changed it and simplifying piping these changes into other data sources.</p><h2>Time traveling SQL</h2><p>Once all changes from a DB are collected, they can be used to recreate transaction-level point-in-time snapshots of your entire database, a particular table, or just a single row. This allows you to easily go back to see what a the result of a query was. It also helps you answer more interesting questions in data analytics as you can compare two points in time in a single query all in your existing data warehouse.</p><h2>Compliance focused</h2><p>Your data belongs with you. Statetrace is designed to be run on-prem, leaving you in complete control of your data. Whether you are running a HIPAA deployment or need to stay SOC 2 compliant, Statetrace works with your compliance team to succeed.</p><h2>Statetrace Core</h2><p>Users can try <a href="/docs/intro">Statetrace Core</a> today for free. Its a limited edition of statetrace without a UI, but with all of the power. Try it out locally to quickly connect your database and start scanning within minutes.</p><h2>Statetrace Enterprise</h2><p>Our flagship product is <a href="https://www.statetrace.com">Statetrace for Enterprise</a>. Its the full featured Statetrace experience with a robust UI, enterprise level user permissions, pre-constructed SQL models for time-travel and support from our customer success team.</p><h2>The future</h2><p>We are developing the highest quality auditing experience. If what we are doing sounds interesting, reach out at <a href="mailto:hello@statetrace.com">hello@statetrace.com</a> and we would love to tell you about what we are working on.</p>]]></content>
+        <content type="html"><![CDATA[<p>The world of application data today is broken. We treat our most valuable asset as a second-class citizen, only keeping the most recent version data available and throwing away critical infomration of how the data got there. It&#x27;s is a hard problem to fix. Statetrace is here to make it easier.</p><div style="background:url(/img/ipanema.jpg);background-size:150px;width:100%;height:200px;margin-top:30px;margin-bottom:30px"></div><p>Data auditing is the future of application development. It enables teams to solve tougher problems faster. With Statetrace, teams can develop an auditing solution in hours instead of months and start delivering reliable answers to their customers. Statetrace annotates row level changes from your databases, piping them into webhooks, into data warehouses, or indexing them for fast searches.</p><h2>Whats wrong today</h2><p>The world of auditing today has been stuck for decades. There exist <a href="https://django-simple-history.readthedocs.io/en/latest/">libraries</a> and <a href="https://github.com/etianen/django-reversion">tools</a> at the application layer to associate changes with who changed them, however these tools are deeply flawed. Because they work at the application layer, they miss things that don&#x27;t go through the application; like migrations or someone connected directly to the DB. More importantly they are strictly framework dependent and do not offer a general solution.</p><p>CDC pipelines capture the changes accurately but do not associate those changes with application meta information.</p><h2>How it works</h2><p>Statetrace connects to the <a href="https://www.postgresql.org/docs/10/logical-replication.html">logical replication</a> of Postgres or the <a href="https://dev.mysql.com/doc/internals/en/binary-log-overview.html">BinLog</a> of MySQL. By reading events directly from the replication log, Statetrace gets a 100% accurate history of your data. More importantly because it is intefacing with the database instead of the application, Statetrace can work with any framework or language with minimal configuration.</p><p>The application annotates transactions by writing to an annotations table in the same transaction that you change other data, associating session and user information with individual row changes.</p><h2>Solving the &quot;Who dunnit?&quot;</h2><p>Nobody wants to answer the dreaded customer complaint &quot;Who changed my data?&quot; Even if the customer was the last one to change the data, without a proper auditing solution one might not be able to give a reliable answer. Having uncertainty around the history of data puts a company&#x27;s reputation at risk.</p><p>Statetrace puts the answers to these questions at your fingertips. With an annotated audit log, each row change is associated with meta-information about who in the application changed the data. Pipe these changes into the destination of your choice for easy searching.</p><h2>Github for Code. Statetrace for Data.</h2><p>Version control for code is integral to the development process. Companies spend billions of dollars every year on developer salaries and want to keep that investment of developer output. Data about what the code was and who changed it is so valuable that a multi-billion dollar industry has grown to support those needs. </p><p>However, companies are throwing away money when it comes to their actual bread and butter: the application data. The stream of changes from application data are a gold mine for solving problems and answering questions. But the vast majority of companies today throw away these changes, because they have little value as they don&#x27;t connect the change to who made the change. This is bad, because you don&#x27;t know what type of questions you might want to know in the future and once you throw it away, its gone for ever.</p><p>Statetrace is solving this problem. Statetrace makes the stream of changes useful by associating the change with who changed it and simplifying piping these changes into other data sources.</p><h2>Time traveling SQL</h2><p>Once all changes from a DB are collected, they can be used to recreate transaction-level point-in-time snapshots of your entire database, a particular table, or just a single row. This allows you to easily go back to see what a the result of a query was. It also helps you answer more interesting questions in data analytics as you can compare two points in time in a single query all in your existing data warehouse.</p><h2>Compliance focused</h2><p>Your data belongs with you. Statetrace is designed to be run on-prem, leaving you in complete control of your data. Whether you are running a HIPAA deployment or need to stay SOC 2 compliant, Statetrace works with your compliance team to succeed.</p><h2>Statetrace Core</h2><p>Users can try <a href="/docs/intro">Statetrace Core</a> today for free. Its a limited edition of statetrace without a UI, but with all of the power. Try it out locally to quickly connect your database and start scanning within minutes.</p><h2>Statetrace Enterprise</h2><p>Our flagship product is <a href="https://www.statetrace.com">Statetrace for Enterprise</a>. Its the full featured Statetrace experience with a robust UI, enterprise level user permissions, pre-constructed SQL models for time-travel and support from our customer success team.</p><h2>The future</h2><p>We are developing the highest quality auditing experience. If what we are doing sounds interesting, reach out at <a href="mailto:hello@statetrace.com">hello@statetrace.com</a> and we would love to tell you about what we are working on.</p>]]></content>
         <author>
             <name>Kyle Hanson</name>
             <uri>https://github.com/hansonkd</uri>
