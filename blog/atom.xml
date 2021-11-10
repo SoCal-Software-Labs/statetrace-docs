@@ -214,13 +214,13 @@ end
     [String.duplicate(payload, String.to_integer(number))]
   end
 </code></pre><p>We will use <a href="https://github.com/sneako/finch">Finch</a> for the HTTP client, which labels itself as &quot;performance focused&quot;.</p><p>For the full benchmark see <a href="https://gist.github.com/hansonkd/cd34329fe4f346e680b39a17d9988af4">the source</a>.</p><p>We will remotely call our functions using the Finch HTTP pool, a single Redix connection, or a pool of Redix connections. We will also test pipelining vs calling each command individually for Redix. We will call our remote function 1000 times concurrently and ask it to duplicate the string <code>&quot;12345&amp;?\&quot;678,\n90&quot;</code>  100 times and respond.</p><pre><code class="language-bash">Name                           ips        average  deviation         median         99th %
-run_redix_pipeline           28.77       34.75 ms    ±63.17%       47.59 ms       92.07 ms
-redix_pool_pipelined         21.50       46.52 ms    ±25.66%       44.06 ms       87.94 ms
-redix_pool                   16.82       59.44 ms    ±24.66%       55.78 ms       99.85 ms
-redix                        13.69       73.04 ms     ±5.39%       72.03 ms       92.49 ms
-finch_get                     0.34     2956.85 ms     ±0.70%     2956.85 ms     2971.46 ms
-finch_post                    0.34     2958.42 ms     ±0.21%     2958.42 ms     2962.81 ms
-</code></pre><p>The results show that running Redis protocol is nearly 100x faster than relying on HTTP. By default Phoenix sends extra headers for the content type and other information. In addition there is extra overhead encoding and decoding the values for URL encoding and JSON.</p><p>Overall using Redis as a Protocol instead of HTTP results in orders of magnitude higher troughput.</p><h2>Conclusion</h2><p>We wrote a high-performance server based on the Redis Protocol in around 10 minutes. This server can handle thousands of connections easily and has minimal overhead. One downside is that load balancing becomes more of a challenge when doing multi-node deploys when using a protocol other than HTTP.</p><p>If you have a one or thousands of clients that need to communicate with a server in the fastest way possible, consider using Redis as your protocol of choice instead of HTTP.</p>]]></content>
+redix_pool                   70.44       14.20 ms    ±36.07%       13.30 ms       50.60 ms
+run_redix_pipeline           30.56       32.73 ms    ±65.74%       47.26 ms       91.99 ms
+redix_pool_pipelined         21.55       46.40 ms     ±3.87%       47.59 ms       48.12 ms
+redix                        13.84       72.28 ms     ±9.91%       72.09 ms       80.31 ms
+finch_get                     0.55     1814.88 ms     ±2.44%     1814.88 ms     1846.24 ms
+finch_post                    0.54     1859.71 ms     ±0.70%     1859.71 ms     1868.97 ms
+</code></pre><p>The results show that running Redis protocol is well over 100x faster than relying on HTTP. By default Phoenix sends extra headers for the content type and other information. In addition there is extra overhead encoding and decoding the values for URL encoding and JSON.</p><p>Overall using Redis as a Protocol instead of HTTP results in orders of magnitude higher troughput.</p><h2>Conclusion</h2><p>We wrote a high-performance server based on the Redis Protocol in around 10 minutes. This server can handle thousands of connections easily and has minimal overhead. One downside is that load balancing becomes more of a challenge when doing multi-node deploys when using a protocol other than HTTP.</p><p>If you have a one or thousands of clients that need to communicate with a server in the fastest way possible, consider using Redis as your protocol of choice instead of HTTP.</p>]]></content>
         <author>
             <name>Kyle Hanson</name>
             <uri>https://github.com/hansonkd</uri>
