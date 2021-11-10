@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstatetrace_docs=self.webpackChunkstatetrace_docs||[]).push([[8],{912:function(s){s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/redis","name":"redis","count":1,"permalink":"/blog/tags/redis"}')}}]);
