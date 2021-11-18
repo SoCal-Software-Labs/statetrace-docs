@@ -27,26 +27,25 @@
   defp loop_acceptor(socket) do
     {:ok, client} = :gen_tcp.accept(socket)
 
+    {:ok, outbound} =
+      :gen_tcp.connect(&#x27;localhost&#x27;, 5432, [:binary, active: true, packet: 0, nodelay: true])
+
     {:ok, pid} =
       Task.Supervisor.start_child(Statetrace.TaskSupervisor, fn -&gt;
-        {:ok, outbound} =
-          :gen_tcp.connect(&#x27;localhost&#x27;, 5432, [:binary, active: true, packet: 0, nodelay: true])
-
-        {:ok, pid2} =
-          Task.Supervisor.start_child(Statetrace.TaskSupervisor, fn -&gt;
-            serve_downstream(client, outbound)
-          end)
-
-        :ok = :gen_tcp.controlling_process(outbound, pid2)
-
         serve_upstream(client, outbound, nil, true)
       end)
 
     :ok = :gen_tcp.controlling_process(client, pid)
 
+    {:ok, pid2} =
+      Task.Supervisor.start_child(Statetrace.TaskSupervisor, fn -&gt;
+        serve_downstream(client, outbound)
+      end)
+
+    :ok = :gen_tcp.controlling_process(outbound, pid2)
+
     loop_acceptor(socket)
   end
-
 end
 
 </code></pre><p>We use <code>:gen_tcp.connect</code> to connect to the real postgres database and spin it off into a loop of its own to pipe responses back to the client.</p><h4>Serving upstream</h4><p>Now build the parser for the upstream connection</p><pre><code class="language-elixir">defmodule Statetrace.PostgresProxy do
@@ -216,22 +215,22 @@ end
   defp loop_acceptor(socket) do
     {:ok, client} = :gen_tcp.accept(socket)
 
+    {:ok, outbound} =
+      :gen_tcp.connect(&#x27;localhost&#x27;, 5432, [:binary, active: true, packet: 0, nodelay: true])
+
     {:ok, pid} =
       Task.Supervisor.start_child(Statetrace.TaskSupervisor, fn -&gt;
-        {:ok, outbound} =
-          :gen_tcp.connect(&#x27;localhost&#x27;, 5432, [:binary, active: true, packet: 0, nodelay: true])
-
-        {:ok, pid2} =
-          Task.Supervisor.start_child(Statetrace.TaskSupervisor, fn -&gt;
-            serve_downstream(client, outbound)
-          end)
-
-        :ok = :gen_tcp.controlling_process(outbound, pid2)
-
         serve_upstream(client, outbound, nil, true)
       end)
 
     :ok = :gen_tcp.controlling_process(client, pid)
+
+    {:ok, pid2} =
+      Task.Supervisor.start_child(Statetrace.TaskSupervisor, fn -&gt;
+        serve_downstream(client, outbound)
+      end)
+
+    :ok = :gen_tcp.controlling_process(outbound, pid2)
 
     loop_acceptor(socket)
   end
@@ -384,7 +383,7 @@ Postgrex.query!(conn, &quot;SELECT 1;&quot;, [])
 </code></pre><p>In Python:</p><pre><code class="language-python">conn = psycopg2.connect(&quot;dbname=postgres host=localhost port=5433 user=postgres password=postgres&quot;)
 cur = conn.cursor()
 cur.execute(&quot;SELECT 1;&quot;)
-</code></pre><h2>Controlling Postgres Statements</h2><p>So you&#x27;re probabaly asking what can we do with this proxy? If we change our <code>handle_parse</code> function we can &quot;police&quot; the queries made to the upstream server. The format of the query message is simple, it is the query string you submitted with a null byte.</p><pre><code class="language-elixir">defmodule Statetrace.PostgresProxy do
+</code></pre><h2>Controlling Postgres Statements</h2><p>So you&#x27;re probabaly asking what can we do with this proxy? If we change our <code>handle_parse</code> function we can &quot;police&quot; the queries made to the upstream server. The format of the query message is simple, it is the query string you submitted prefixed with the length and suffixed with a null byte.</p><pre><code class="language-elixir">defmodule Statetrace.PostgresProxy do
   ...
 
   defp is_query_good?(q) do
@@ -428,7 +427,7 @@ cur.execute(&quot;SELECT 1;&quot;)
     serve_upstream(socket, outbound, continuation, false)
   end
 end
-</code></pre><h2>Conclusion</h2><p>There is still more to the protocol, but we have shown that with a little patience you can produce a useful proxy that understands the protocol in less than 200 lines of code. Elixir&#x27;s pattern matching simplifies extracting information from the binary stream and <code>gen_tcp</code> makes it simple to deal with sockets.</p><p>Like what you read? Reach out at <a href="mailto:hello@statetrace.com">hello@statetrace.com</a> to learn more about what we are working on.</p>]]></content>
+</code></pre><p>In production you will want to set permissions at the database level specific to the user connected. However this proxy can still be useful at the connection level. You can do things like make sure that queries to a certain table filter on certain columns. For instance a SAAS platform might want to have an extra layer to make sure that all queries include an <code>organization_id</code> column in the WHERE clause.</p><h2>Conclusion</h2><p>There is still more to the protocol, but we have shown that with a little patience you can produce a useful proxy that understands the protocol in less than 200 lines of code. Elixir&#x27;s pattern matching simplifies extracting information from the binary stream and <code>gen_tcp</code> makes it simple to deal with sockets.</p><p>Like what you read? Reach out at <a href="mailto:hello@statetrace.com">hello@statetrace.com</a> to learn more about what we are working on.</p>]]></content>
         <author>
             <name>Kyle Hanson</name>
             <uri>https://github.com/hansonkd</uri>
