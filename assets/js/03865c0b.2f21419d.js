@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstatetrace_docs=self.webpackChunkstatetrace_docs||[]).push([[679],{7043:function(s){s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/elastic","name":"elastic","count":1,"permalink":"/blog/tags/elastic"}')}}]);

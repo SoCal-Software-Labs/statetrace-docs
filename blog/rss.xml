@@ -4,11 +4,624 @@
         <title>Statetrace Blog</title>
         <link>https://docs.statetrace.com/blog</link>
         <description>Statetrace Blog</description>
-        <lastBuildDate>Tue, 09 Nov 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 16 Nov 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
-            <title><![CDATA[Build an Elixir Redis Server that's 100x faster than HTTP]]></title>
+            <title><![CDATA[Build a Postgres Proxy in Elixir using Pattern Matching]]></title>
+            <link>https://docs.statetrace.com/blog/build-a-postgres-proxy</link>
+            <guid>build-a-postgres-proxy</guid>
+            <pubDate>Tue, 16 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Build a postgres proxy in Elixir]]></description>
+            <content:encoded><![CDATA[<p>Want to learn how your Application talks to your Database? Build a proxy using Elixir with its powerful pattern matching and <code>gen_tcp</code> to take your database understanding to the next level. In this article we build a Postgres proxy in Elixir to show all you need is a little curiousity to master one of the most popular SQL protocols around.</p><div style="background:url(/img/ipanema.jpg);background-size:150px;width:100%;height:200px;margin-top:30px;margin-bottom:30px"></div><p>Building a proxy can be a great way to understand a protocol. Everything you build doesn&#x27;t need to be used in production in order for it to be valuable to your understanding of the tech. The better you understand the tech, the more powerful the tech becomes.</p><h3>Accepting the socket</h3><p>For this proxy we will open a TCP socket in active mode. In order to understand what active mode is, it&#x27;s helpful to know what it isn&#x27;t. When active is false, the VM will stop reading packets from the socket until you call  <code>:gen_tcp.recv</code>. When the socket is set to active mode, the VM instead reads data as fast as possible from the socket and uses the processes mailbox as the buffer.</p><p>Because we will be reading data as fast as possible from both upstream and downstream we will need to split out our listener into two processes. One process will read upstream data, parse it into commands, and then forward those commands to the Postgres database. The other process will read the responses from the Postgres database and forward them directly back to the client.</p><p>To build this proxy, I used the postgres <a href="https://www.postgresql.org/docs/9.3/protocol.html">reference documentation</a> regarding the protocol.</p><p>This blog post assumes you are familar with Elixir and its Application structure. If you want to learn more about TCP connections and supervision, read the <a href="https://elixir-lang.org/getting-started/mix-otp/task-and-gen-tcp.html">official Elixir article</a>.</p><pre><code class="language-elixir">defmodule Statetrace.PostgresProxy do
+  require Logger
+
+  def accept(port) do
+    {:ok, socket} =
+      :gen_tcp.listen(port, [:binary, active: true, reuseaddr: true, packet: 0, nodelay: true])
+
+    Logger.info(&quot;Accepting connections on port #{port}&quot;)
+    loop_acceptor(socket)
+  end
+
+  defp loop_acceptor(socket) do
+    {:ok, client} = :gen_tcp.accept(socket)
+
+    {:ok, pid} =
+      Task.Supervisor.start_child(Statetrace.TaskSupervisor, fn -&gt;
+        {:ok, outbound} =
+          :gen_tcp.connect(&#x27;localhost&#x27;, 5432, [:binary, active: true, packet: 0, nodelay: true])
+
+        {:ok, pid2} =
+          Task.Supervisor.start_child(Statetrace.TaskSupervisor, fn -&gt;
+            serve_downstream(client, outbound)
+          end)
+
+        :ok = :gen_tcp.controlling_process(outbound, pid2)
+
+        serve_upstream(client, outbound, nil, true)
+      end)
+
+    :ok = :gen_tcp.controlling_process(client, pid)
+
+    loop_acceptor(socket)
+  end
+
+end
+
+</code></pre><p>We use <code>:gen_tcp.connect</code> to connect to the real postgres database and spin it off into a loop of its own to pipe responses back to the client.</p><h4>Serving upstream</h4><p>Now build the parser for the upstream connection</p><pre><code class="language-elixir">defmodule Statetrace.PostgresProxy do
+
+  ...
+
+  def serve_upstream(socket, outbound, nil, is_first) do
+    data = socket |&gt; read_line()
+
+    handle_parse(socket, outbound, parse_msg(data, is_first))
+  end
+
+  def serve_upstream(socket, outbound, fun, _is_first) do
+    data = socket |&gt; read_line()
+
+    r = fun.(data)
+
+    handle_parse(socket, outbound, r)
+  end
+
+  def read_line(socket) do
+    receive do
+      {:tcp, ^socket, data} -&gt; data
+    end
+  end
+end
+</code></pre><p>To parse the message is very simple. It is a very simple length-prefixed binary format with a message tag byte. The very first message of a connection is the only exception and excludes the tag. There is a chance that the current data we have is not enough to satisfy the length of the message. In this case we will use a continuation so that the next data that comes in, we can check to see if it completes the message.</p><pre><code class="language-elixir">defmodule Statetrace.PostgresProxy do
+
+  ...
+
+  # On the first message don&#x27;t extract the tag
+  defp parse_msg(bin, true) do
+    # Use pattern matching to extract the length
+    &lt;&lt;len::unsigned-integer-32, _other_rest::binary&gt;&gt; = bin
+
+    case bin do
+      # Pattern match to see if our binary is big enough
+      &lt;&lt;msg_body::binary-size(len), final_rest::binary&gt;&gt; -&gt;
+        {:ok, {{:msgStartup, nil}, msg_body}, final_rest}
+
+      _ -&gt;
+        {:continuation,
+         fn data -&gt;
+           handle_continuation(len, {:msgStartup, nil}, bin, data)
+         end}
+    end
+  end
+
+  # Pattern match the binary to extract the tag.
+  defp parse_msg(&lt;&lt;c::size(8), rest::binary&gt;&gt;, false) do
+    tag = tag_to_msg_type(c)
+
+    # Use pattern matching to extract the length
+    &lt;&lt;len::unsigned-integer-32, _other_rest::binary&gt;&gt; = rest
+
+    case rest do
+      # Pattern match to see if our binary is big enough
+      &lt;&lt;msg_body::binary-size(len), final_rest::binary&gt;&gt; -&gt;
+        {:ok, {{tag, c}, msg_body}, final_rest}
+
+      _ -&gt;
+        {:continuation,
+         fn data -&gt;
+           handle_continuation(len, {tag, c}, rest, data)
+         end}
+    end
+  end
+
+  def handle_continuation(l, tag, other, data) do
+    new_data = other &lt;&gt; data
+
+    case new_data do
+      &lt;&lt;msg_body::binary-size(l), rest::binary&gt;&gt; -&gt;
+        {:ok, {tag, msg_body}, rest}
+
+      _ -&gt;
+        {:continuation,
+         fn data -&gt;
+           handle_continuation(l, tag, new_data, data)
+         end}
+    end
+  end
+end
+</code></pre><p>The first byte in non-connection messages is a tag. We will convert this tag into an atom.</p><pre><code class="language-elixir">defmodule Statetrace.PostgresProxy do
+
+  ...
+
+  defp tag_to_msg_type(val) do
+    case val do
+      ?1 -&gt; :msgParseComplete
+      ?2 -&gt; :msgBindComplete
+      ?3 -&gt; :msgCloseComplete
+      ?A -&gt; :msgNotificationResponse
+      ?c -&gt; :msgCopyDone
+      ?C -&gt; :msgCommandComplete
+      ?d -&gt; :msgCopyData
+      ?D -&gt; :msgDataRow
+      ?E -&gt; :msgErrorResponse
+      ?f -&gt; :msgFail
+      ?G -&gt; :msgCopyInResponse
+      ?H -&gt; :msgCopyOutResponse
+      ?I -&gt; :msgEmptyQueryResponse
+      ?K -&gt; :msgBackendKeyData
+      ?n -&gt; :msgNoData
+      ?N -&gt; :msgNoticeResponse
+      ?R -&gt; :msgAuthentication
+      ?s -&gt; :msgPortalSuspended
+      ?S -&gt; :msgParameterStatus
+      ?t -&gt; :msgParameterDescription
+      ?T -&gt; :msgRowDescription
+      ?p -&gt; :msgPasswordMessage
+      ?W -&gt; :CopyBothResponse
+      ?Q -&gt; :msgQuery
+      ?X -&gt; :msgTerminate
+      ?Z -&gt; :msgReadyForQuery
+      ?P -&gt; :msgParse
+      ?B -&gt; :msgBind
+      _ -&gt; :msgNoTag
+    end
+  end
+end
+</code></pre><p>Finally we will handle the parse result. </p><pre><code class="language-elixir">defmodule Statetrace.PostgresProxy do
+
+  ...
+
+  def handle_parse(socket, outbound, {:continuation, continuation}) do
+    serve_upstream(socket, outbound, continuation, false)
+  end
+
+  def handle_parse(socket, outbound, {:ok, {{_msgType, c}, data}, left_over}) do
+    to_send =
+      case c do
+        nil -&gt; data
+        _ -&gt; [c, data]
+      end
+
+    :ok = :gen_tcp.send(outbound, to_send)
+
+    case left_over do
+      &quot;&quot; -&gt; serve_upstream(socket, outbound, nil, false)
+      _ -&gt; handle_parse(socket, outbound, parse_msg(left_over, false))
+    end
+  end
+end
+</code></pre><h3>Serving downstream</h3><p>The downstream response is even simpler. We will not parse the message and simply forward the data directly to the socket.</p><pre><code class="language-elixir">defmodule Statetrace.PostgresProxy do
+
+  ...
+
+  def serve_downstream(socket, outbound) do
+    data = outbound |&gt; read_line()
+    :ok = :gen_tcp.send(socket, data)
+
+    serve_downstream(socket, outbound)
+  end
+end
+</code></pre><h3>Complete server</h3><p>The complete server is less than 200 lines of code.</p><pre><code class="language-elixir">defmodule Statetrace.PostgresProxy do
+  require Logger
+
+  def accept(port) do
+    {:ok, socket} =
+      :gen_tcp.listen(port, [:binary, active: true, reuseaddr: true, packet: 0, nodelay: true])
+
+    Logger.info(&quot;Accepting connections on port #{port}&quot;)
+    loop_acceptor(socket)
+  end
+
+  defp loop_acceptor(socket) do
+    {:ok, client} = :gen_tcp.accept(socket)
+
+    {:ok, pid} =
+      Task.Supervisor.start_child(Statetrace.TaskSupervisor, fn -&gt;
+        {:ok, outbound} =
+          :gen_tcp.connect(&#x27;localhost&#x27;, 5432, [:binary, active: true, packet: 0, nodelay: true])
+
+        {:ok, pid2} =
+          Task.Supervisor.start_child(Statetrace.TaskSupervisor, fn -&gt;
+            serve_downstream(client, outbound)
+          end)
+
+        :ok = :gen_tcp.controlling_process(outbound, pid2)
+
+        serve_upstream(client, outbound, nil, true)
+      end)
+
+    :ok = :gen_tcp.controlling_process(client, pid)
+
+    loop_acceptor(socket)
+  end
+
+  defp serve_upstream(socket, outbound, nil, is_first) do
+    data = socket |&gt; read_line()
+
+    handle_parse(socket, outbound, parse_msg(data, is_first))
+  end
+
+  defp serve_upstream(socket, outbound, fun, _is_first) do
+    data = socket |&gt; read_line()
+
+    r = fun.(data)
+
+    handle_parse(socket, outbound, r)
+  end
+
+  defp handle_parse(socket, outbound, {:continuation, continuation}) do
+    serve_upstream(socket, outbound, continuation, false)
+  end
+
+  defp handle_parse(socket, outbound, {:ok, {{_msgType, c}, data}, left_over}) do
+    to_send =
+      case c do
+        nil -&gt; data
+        _ -&gt; [c, data]
+      end
+
+    :ok = :gen_tcp.send(outbound, to_send)
+
+    case left_over do
+      &quot;&quot; -&gt; serve_upstream(socket, outbound, nil, false)
+      _ -&gt; handle_parse(socket, outbound, parse_msg(left_over, false))
+    end
+  end
+
+  defp serve_downstream(socket, outbound) do
+    data = outbound |&gt; read_line()
+    :ok = :gen_tcp.send(socket, data)
+
+    serve_downstream(socket, outbound)
+  end
+
+  defp read_line(socket) do
+    receive do
+      {:tcp, ^socket, data} -&gt; data
+    end
+  end
+
+  defp tag_to_msg_type(val) do
+    case val do
+      ?1 -&gt; :msgParseComplete
+      ?2 -&gt; :msgBindComplete
+      ?3 -&gt; :msgCloseComplete
+      ?A -&gt; :msgNotificationResponse
+      ?c -&gt; :msgCopyDone
+      ?C -&gt; :msgCommandComplete
+      ?d -&gt; :msgCopyData
+      ?D -&gt; :msgDataRow
+      ?E -&gt; :msgErrorResponse
+      ?f -&gt; :msgFail
+      ?G -&gt; :msgCopyInResponse
+      ?H -&gt; :msgCopyOutResponse
+      ?I -&gt; :msgEmptyQueryResponse
+      ?K -&gt; :msgBackendKeyData
+      ?n -&gt; :msgNoData
+      ?N -&gt; :msgNoticeResponse
+      ?R -&gt; :msgAuthentication
+      ?s -&gt; :msgPortalSuspended
+      ?S -&gt; :msgParameterStatus
+      ?t -&gt; :msgParameterDescription
+      ?T -&gt; :msgRowDescription
+      ?p -&gt; :msgPasswordMessage
+      ?W -&gt; :CopyBothResponse
+      ?Q -&gt; :msgQuery
+      ?X -&gt; :msgTerminate
+      ?Z -&gt; :msgReadyForQuery
+      ?P -&gt; :msgParse
+      ?B -&gt; :msgBind
+      _ -&gt; :msgNoTag
+    end
+  end
+
+  defp parse_msg(bin, true) do
+    &lt;&lt;len::unsigned-integer-32, _other_rest::binary&gt;&gt; = bin
+
+    case bin do
+      &lt;&lt;msg_body::binary-size(len), final_rest::binary&gt;&gt; -&gt;
+        {:ok, {{:msgStartup, nil}, msg_body}, final_rest}
+
+      _ -&gt;
+        {:continuation,
+         fn data -&gt;
+           handle_continuation(len, {:msgStartup, nil}, bin, data)
+         end}
+    end
+  end
+
+  defp parse_msg(&lt;&lt;c::size(8), rest::binary&gt;&gt;, false) do
+    tag = tag_to_msg_type(c)
+
+    &lt;&lt;len::unsigned-integer-32, _other_rest::binary&gt;&gt; = rest
+
+    case rest do
+      &lt;&lt;msg_body::binary-size(len), final_rest::binary&gt;&gt; -&gt;
+        {:ok, {{tag, c}, msg_body}, final_rest}
+
+      _ -&gt;
+        {:continuation,
+         fn data -&gt;
+           handle_continuation(len, {tag, c}, rest, data)
+         end}
+    end
+  end
+
+  defp handle_continuation(l, tag, other, data) do
+    new_data = other &lt;&gt; data
+
+    case new_data do
+      &lt;&lt;msg_body::binary-size(l), rest::binary&gt;&gt; -&gt;
+        {:ok, {tag, msg_body}, rest}
+
+      _ -&gt;
+        {:continuation,
+         fn data -&gt;
+           handle_continuation(l, tag, new_data, data)
+         end}
+    end
+  end
+end
+</code></pre><p>To start it with your application, add it to your supervisor tree:</p><pre><code class="language-elixir">defmodule Statetrace.Application do
+  use Application
+
+  def start(_type, _args) do
+
+    children = [
+      {Task.Supervisor, name: Statetrace.TaskSupervisor},
+      Supervisor.child_spec({Task, fn -&gt; Statetrace.PostgresProxy.accept(5433) end},
+        restart: :permanent
+      )
+
+    ]
+    opts = [strategy: :one_for_one, name: Statetrace.Supervisor]
+    Supervisor.start_link(children, opts)
+  end
+end
+</code></pre><p>Now you can connect to your proxy from postgres clients in every language!</p><p>Elixir:</p><pre><code class="language-elixir">{:ok, conn} = Postgrex.start_link(host: &quot;localhost&quot;, port: 5433, password: &quot;postgres&quot;, username: &quot;postgres&quot;, database: &quot;postgres&quot;)
+Postgrex.query!(conn, &quot;SELECT 1;&quot;, [])
+</code></pre><p>In Python:</p><pre><code class="language-python">conn = psycopg2.connect(&quot;dbname=postgres host=localhost port=5433 user=postgres password=postgres&quot;)
+cur = conn.cursor()
+cur.execute(&quot;SELECT 1;&quot;)
+</code></pre><h3>Controlling Postgres Statements</h3><p>So you&#x27;re probabaly asking what can we do with this proxy? If we change our <code>handle_parse</code> function we can &quot;police&quot; the queries made to the upstream server. The format of the query message is simple, it is the query string you submitted with a null byte.</p><pre><code class="language-elixir">defmodule Statetrace.PostgresProxy do
+  ...
+
+  defp is_query_good?(q) do
+    # In reality you will want something more secure than this
+    String.starts_with?(q, &quot;SELECT&quot;)
+  end
+
+  defp handle_parse(socket, outbound, {:ok, {{:msgQuery, _c}, data}, _left_over} = msg) do
+    query = String.trim_trailing(data, &lt;&lt;0&gt;&gt;)
+    Logger.info(&quot;Query: #{query}&quot;)
+
+    if is_query_good?(query) do
+      do_handle_parse(socket, outbound, msg)
+    else
+      raise &quot;Unauthorized Query&quot;
+    end
+  end
+
+  defp handle_parse(socket, outbound, msg) do
+    do_handle_parse(socket, outbound, msg)
+  end
+
+  defp do_handle_parse(socket, outbound, {:ok, {{_msgType, c}, data}, left_over}) do
+    to_send =
+      case c do
+        nil -&gt; data
+        _ -&gt; [c, data]
+      end
+
+    :ok = :gen_tcp.send(outbound, to_send)
+
+    case left_over do
+      &quot;&quot; -&gt; serve_upstream(socket, outbound, nil, false)
+      _ -&gt; handle_parse(socket, outbound, parse_msg(left_over, false))
+    end
+  end
+end
+</code></pre><h3>Conclusion</h3><p>There is still more to the protocol, but we have shown that with a little patience you can produce a useful proxy that understands the protocol in less than 200 lines of code. Elixir&#x27;s pattern matching simplifies extracting information from the binary stream and <code>gen_tcp</code> makes it simple to deal with sockets.</p><p>Like what you read? Reach out at <a href="mailto:hello@statetrace.com">hello@statetrace.com</a> to learn more about what we are working on.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Stream Postgres Changes into Elasticsearch with Statetrace]]></title>
+            <link>https://docs.statetrace.com/blog/stream-postgres-elastic-search</link>
+            <guid>stream-postgres-elastic-search</guid>
+            <pubDate>Sat, 13 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Stream Postgres Changes into Elasticsearch with Statetrace]]></description>
+            <content:encoded><![CDATA[<p>Need to connect Postgres to Elasticsearch? Statetrace makes it easy to stream changes from your application database into the popular search engine.</p><div style="background:url(/img/ipanema.jpg);background-size:150px;width:100%;height:200px;margin-top:30px;margin-bottom:30px"></div><p>Postgres is great for a lot of things, however sometimes your data access patterns require a search engine like <a href="https://www.elastic.co/">Elasticsearch</a>. Unfortunately it can be tricky to keep <a href="https://www.postgresql.org/">Postgres</a> synchronized with Elasticsearch when data changes. Luckily, Statetrace makes it easy.</p><p>In this article we will configure a local Postgres instance with Statetrace and pipe all changes into Elasticsearch for easy querying.</p><h2>Configure the Databases in Docker-Compose</h2><p>I will use the standard docker-compose.yaml from the <a href="https://docs.statetrace.com/docs/intro">tutorial.</a> with the addition of the elasticsearch container.</p><pre><code class="language-yaml">version: &#x27;3&#x27;
+    
+services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+    command:
+      - &quot;postgres&quot;
+      - &quot;-c&quot;
+      - &quot;wal_level=logical&quot;
+      - &quot;-c&quot;
+      - &quot;max_wal_senders=2&quot;
+      - &quot;-c&quot;
+      - &quot;max_replication_slots=2&quot;
+    ports:
+      - &quot;5432:5432&quot;
+
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.2
+    container_name: es01
+    environment:
+      - node.name=es01
+      - bootstrap.memory_lock=true
+      - &quot;ES_JAVA_OPTS=-Xms512m -Xmx512m&quot;
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data01:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    networks:
+      - elastic
+  
+  # The buffer database
+  statetrace_db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+    command:
+      - &quot;postgres&quot;
+      - &quot;-p&quot;
+      - &quot;5433&quot;
+    ports:
+      - &quot;5433:5433&quot;
+</code></pre><h2>Configure Statetrace</h2><p>We will use the following as our configuration for statetrace. </p><pre><code class="language-yaml" metastring="title=&quot;STATETRACE_INBOUND_CONFIG&quot;" title="&quot;STATETRACE_INBOUND_CONFIG&quot;">inbounds:
+  - name: Postgres DB
+    database_type: postgres
+    username: postgres
+    password: postgres
+    database: postgres
+    host: localhost
+    publication: &quot;statetrace&quot;
+    slot: &quot;statetrace&quot;
+    port: 5432
+    log_new_attributes: true
+    outbounds:
+        - name: Webhook
+          handler: webhook
+          target_url: &quot;http://es01:9200/logs-statetrace_dump/_bulk&quot;
+          middleware: |
+            fn 
+              %{relation_name: tn} when tn in [&quot;my_special_table&quot;] -&gt; :ok
+              _ -&gt; :skip
+            end
+          request_builder: |
+            fn rows -&gt;
+              payload = 
+                rows
+                |&gt; Enum.flat_map(fn row -&gt; 
+                    [
+                        Jason.encode_to_iodata!(%{&quot;create&quot; =&gt; %{}}),
+                        &quot;\n&quot;,
+                        Jason.encode_to_iodata!(Map.merge(%{&quot;@timestamp&quot; =&gt; row[&quot;row_timestamp&quot;]}, row)),
+                        &quot;\n&quot;
+                    ]
+                end)
+              %WebhookRequest{method: &quot;POST&quot;, headers: [], payload: payload}
+            end
+</code></pre><h3>Middleware</h3><p>An outbound middleware runs on every row and tells whether or not to include it in the outbound request. Elixir&#x27;s pattern matching syntax makes it a breeze to match the tables we want to send to Elasticsearch.</p><p>In this example, we will only put rows from <code>my_special_table</code> into the index.</p><h3>Request Builder</h3><p>In our webhook request, we return a closure that builds our WebhookRequest. The WebhookRequest allows you to set the method, headers and payload of your HTTP request as well as control what fields will be included in the payload. If you want to grab an environment variable, do it outside of the closure.</p><p>In Elasticsearch, bulk data is sent as newline-delimited JSON so we will have to format our paylaod accordingly.</p><h2>Configure Statetrace in Docker-Compose</h2><p>Now we will add Statetrace to our Docker-compose settings</p><h3>Get your License</h3><p>Go to <a href="https://www.statetrace.com/statetrace-core">https://www.statetrace.com/statetrace-core</a> to get your free <code>STATETRACE_LICENSE</code> key. No email or sign-up required.</p><h3>Make a secret</h3><p>Run the following command to generate a STATETRACE_SECRET_KEY </p><pre><code class="language-bash">head -c 500 /dev/urandom | tr -dc &#x27;a-zA-Z0-9&#x27; | fold -w 32 | head -n 1
+</code></pre><h3>Add to YAML</h3><p>Taking our Statetrace License, our STATETRACE_INBOUND_CONFIG above and tie it all together with the rest of our docker compose file.</p><pre><code class="language-yaml" metastring="title=&quot;docker-compose.yaml&quot;" title="&quot;docker-compose.yaml&quot;">version: &#x27;3&#x27;
+    
+services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+    command:
+      - &quot;postgres&quot;
+      - &quot;-c&quot;
+      - &quot;wal_level=logical&quot;
+      - &quot;-c&quot;
+      - &quot;max_wal_senders=2&quot;
+      - &quot;-c&quot;
+      - &quot;max_replication_slots=2&quot;
+    ports:
+      - &quot;5432:5432&quot;
+
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.2
+    container_name: es01
+    environment:
+      - node.name=es01
+      - bootstrap.memory_lock=true
+      - &quot;ES_JAVA_OPTS=-Xms512m -Xmx512m&quot;
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data01:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    networks:
+      - elastic
+  
+  # The buffer database
+  statetrace_db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+    command:
+      - &quot;postgres&quot;
+      - &quot;-p&quot;
+      - &quot;5433&quot;
+    ports:
+      - &quot;5433:5433&quot;
+
+
+  statetrace:
+    image: statetraceofficial/statetrace-beta
+    environment:
+      STATETRACE_DATABASE_URL: postgres://postgres:postgres@statetrace_db:5433/postgres
+      STATETRACE_SECRET_KEY_BASE: &quot;123456789123456789123456789123456789123456789123456789123456789123456789&quot;
+      STATETRACE_LICENSE: &quot;&lt;statetrace_license&gt;&quot;
+      STATETRACE_INBOUND_CONFIG: |
+          inbounds:
+            - name: Postgres DB
+              database_type: postgres
+              username: postgres
+              password: postgres
+              database: postgres
+              host: localhost
+              publication: &quot;statetrace&quot;
+              slot: &quot;statetrace&quot;
+              port: 5432
+              log_new_attributes: true
+              outbounds:
+                  - name: Webhook
+                    handler: webhook
+                    target_url: &quot;http://es01:9200/logs-statetrace_dump/_bulk&quot;
+                    middleware: |
+                      fn 
+                        %{relation_name: tn} when tn in [&quot;my_special_table&quot;] -&gt; :ok
+                        _ -&gt; :skip
+                      end
+                    request_builder: |
+                        fn rows -&gt;
+                          payload = 
+                            rows
+                            |&gt; Enum.flat_map(fn row -&gt; 
+                                [
+                                    Jason.encode_to_iodata!(%{&quot;create&quot; =&gt; %{}}),
+                                    &quot;\n&quot;,
+                                    Jason.encode_to_iodata!(Map.merge(%{&quot;@timestamp&quot; =&gt; row.row_timestamp}, row)),
+                                    &quot;\n&quot;
+                                ]
+                            end)
+                          %WebhookRequest{method: &quot;POST&quot;, headers: [{&quot;content-type&quot;, &quot;application/json&quot;}], payload: payload}
+                        end
+    depends_on:
+      - statetrace_db
+      - postgres
+      - es01
+</code></pre><p>Now all changes happening in the postgres database that match the middleware will be streamed into Elasticsearch under the <code>logs-statetrace_dump</code> index.</p><h3>Conclusion</h3><p>Keeping Postgres synchronized with Elasticsearch doesn&#x27;t need to be hard. We have shown that we can configure the standard webhooks found in Statetrace and use them to push data into the search engine without a lot of configuration.</p><p>You can expand on this method to customize the data that you choose to index.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Build an Elixir Redis API that's 100x faster than HTTP]]></title>
             <link>https://docs.statetrace.com/blog/redis-server</link>
             <guid>redis-server</guid>
             <pubDate>Tue, 09 Nov 2021 00:00:00 GMT</pubDate>
@@ -176,7 +789,7 @@ end
   def handle([command, payload]) do
     case handle_command(command, MsgPax.unpack!(payload)) do
         {:error, e} -&gt; %Redix.Error{message: &quot;ERROR #{e}&quot;}
-        value -&gt; [MspPax.pack!(value)]
+        value -&gt; [MsgPax.pack!(value)]
     end
   end
 
@@ -228,7 +841,7 @@ finch_post                    0.54     1859.71 ms     ±0.70%     1859.71 ms    
             <guid>time-for-a-change</guid>
             <pubDate>Mon, 08 Nov 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Data auditing with Statetrace]]></description>
-            <content:encoded><![CDATA[<p>The world of application data today is broken. We treat our most valuable asset as a second-class citizen, only keeping the most recent version data available and throwing away critical infomration of how the data got there. It&#x27;s is a hard problem to fix. Statetrace is here to make it easier.</p><div style="background:url(/img/ipanema.jpg);background-size:150px;width:100%;height:200px;margin-top:30px;margin-bottom:30px"></div><p>Data auditing is the future of application development. It enables teams to solve tougher problems faster. With Statetrace, teams can develop an auditing solution in hours instead of months and start delivering reliable answers to their customers. Statetrace annotates row level changes from your databases, piping them into webhooks, into data warehouses, or indexing them for fast searches.</p><h2>Whats wrong today</h2><p>The world of auditing today has been stuck for decades. There exist <a href="https://django-simple-history.readthedocs.io/en/latest/">libraries</a> and <a href="https://github.com/etianen/django-reversion">tools</a> at the application layer to associate changes with who changed them, however these tools are deeply flawed. Because they work at the application layer, they miss things that don&#x27;t go through the application; like migrations or someone connected directly to the DB. More importantly they are strictly framework dependent and do not offer a general solution.</p><p>CDC pipelines capture the changes accurately but do not associate those changes with application meta information.</p><h2>How it works</h2><p>Statetrace connects to the <a href="https://www.postgresql.org/docs/10/logical-replication.html">logical replication</a> of Postgres or the <a href="https://dev.mysql.com/doc/internals/en/binary-log-overview.html">BinLog</a> of MySQL. By reading events directly from the replication log, Statetrace gets a 100% accurate history of your data. More importantly because it is intefacing with the database instead of the application, Statetrace can work with any framework or language with minimal configuration.</p><p>The application annotates transactions by writing to an annotations table in the same transaction that you change other data, associating session and user information with individual row changes.</p><h2>Solving the &quot;Who dunnit?&quot;</h2><p>Nobody wants to answer the dreaded customer complaint &quot;Who changed my data?&quot; Even if the customer was the last one to change the data, without a proper auditing solution one might not be able to give a reliable answer. Having uncertainty around the history of data puts a company&#x27;s reputation at risk.</p><p>Statetrace puts the answers to these questions at your fingertips. With an annotated audit log, each row change is associated with meta-information about who in the application changed the data. Pipe these changes into the destination of your choice for easy searching.</p><h2>Github for Code. Statetrace for Data.</h2><p>Version control for code is integral to the development process. Companies spend billions of dollars every year on developer salaries and want to keep that investment of developer output. Data about what the code was and who changed it is so valuable that a multi-billion dollar industry has grown to support those needs. </p><p>However, companies are throwing away money when it comes to their actual bread and butter: the application data. The stream of changes from application data are a gold mine for solving problems and answering questions. But the vast majority of companies today throw away these changes, because they have little value as they don&#x27;t connect the change to who made the change. This is bad, because you don&#x27;t know what type of questions you might want to know in the future and once you throw it away, its gone for ever.</p><p>Statetrace is solving this problem. Statetrace makes the stream of changes useful by associating the change with who changed it and simplifying piping these changes into other data sources.</p><h2>Time traveling SQL</h2><p>Once all changes from a DB are collected, they can be used to recreate transaction-level point-in-time snapshots of your entire database, a particular table, or just a single row. This allows you to easily go back to see what a the result of a query was. It also helps you answer more interesting questions in data analytics as you can compare two points in time in a single query all in your existing data warehouse.</p><h2>Compliance focused</h2><p>Your data belongs with you. Statetrace is designed to be run on-prem, leaving you in complete control of your data. Whether you are running a HIPAA deployment or need to stay SOC 2 compliant, Statetrace works with your compliance team to succeed.</p><h2>Statetrace Core</h2><p>Users can try <a href="/docs/intro">Statetrace Core</a> today for free. Its a limited edition of statetrace without a UI, but with all of the power. Try it out locally to quickly connect your database and start scanning within minutes.</p><h2>Statetrace Enterprise</h2><p>Our flagship product is <a href="https://www.statetrace.com">Statetrace for Enterprise</a>. Its the full featured Statetrace experience with a robust UI, enterprise level user permissions, pre-constructed SQL models for time-travel and support from our customer success team.</p><h2>The future</h2><p>We are developing the highest quality auditing experience. If what we are doing sounds interesting, reach out at <a href="mailto:hello@statetrace.com">hello@statetrace.com</a> and we would love to tell you about what we are working on.</p>]]></content:encoded>
+            <content:encoded><![CDATA[<p>The world of application data today is broken. We treat our most valuable asset as a second-class citizen, only keeping the most recent version data available and throwing away critical information of how the data got there. It&#x27;s is a hard problem to fix. Statetrace is here to make it easier.</p><div style="background:url(/img/ipanema.jpg);background-size:150px;width:100%;height:200px;margin-top:30px;margin-bottom:30px"></div><p>Data auditing is the future of application development. It enables teams to solve tougher problems faster. With Statetrace, teams can develop an auditing solution in hours instead of months and start delivering reliable answers to their customers. Statetrace annotates row level changes from your databases, piping them into webhooks, into data warehouses, or indexing them for fast searches.</p><h2>Whats wrong today</h2><p>The world of auditing today has been stuck for decades. There exist <a href="https://django-simple-history.readthedocs.io/en/latest/">libraries</a> and <a href="https://github.com/etianen/django-reversion">tools</a> at the application layer to associate changes with who changed them, however these tools are deeply flawed. Because they work at the application layer, they miss things that don&#x27;t go through the application; like migrations or someone connected directly to the DB. More importantly they are strictly framework dependent and do not offer a general solution.</p><p>CDC pipelines capture the changes accurately but do not associate those changes with application meta information.</p><h2>How it works</h2><p>Statetrace connects to the <a href="https://www.postgresql.org/docs/10/logical-replication.html">logical replication</a> of Postgres or the <a href="https://dev.mysql.com/doc/internals/en/binary-log-overview.html">BinLog</a> of MySQL. By reading events directly from the replication log, Statetrace gets a 100% accurate history of your data. More importantly because it is intefacing with the database instead of the application, Statetrace can work with any framework or language with minimal configuration.</p><p>The application annotates transactions by writing to an annotations table in the same transaction that you change other data, associating session and user information with individual row changes.</p><h2>Solving the &quot;Who dunnit?&quot;</h2><p>Nobody wants to answer the dreaded customer complaint &quot;Who changed my data?&quot; Even if the customer was the last one to change the data, without a proper auditing solution one might not be able to give a reliable answer. Having uncertainty around the history of data puts a company&#x27;s reputation at risk.</p><p>Statetrace puts the answers to these questions at your fingertips. With an annotated audit log, each row change is associated with meta-information about who in the application changed the data. Pipe these changes into the destination of your choice for easy searching.</p><h2>Github for Code. Statetrace for Data.</h2><p>Version control for code is integral to the development process. Companies spend billions of dollars every year on developer salaries and want to keep that investment of developer output. Data about what the code was and who changed it is so valuable that a multi-billion dollar industry has grown to support those needs. </p><p>However, companies are throwing away money when it comes to their actual bread and butter: the application data. The stream of changes from application data are a gold mine for solving problems and answering questions. But the vast majority of companies today throw away these changes, because they have little value as they don&#x27;t connect the change to who made the change. This is bad, because you don&#x27;t know what type of questions you might want to know in the future and once you throw it away, its gone for ever.</p><p>Statetrace is solving this problem. Statetrace makes the stream of changes useful by associating the change with who changed it and simplifying piping these changes into other data sources.</p><h2>Time traveling SQL</h2><p>Once all changes from a DB are collected, they can be used to recreate transaction-level point-in-time snapshots of your entire database, a particular table, or just a single row. This allows you to easily go back to see what a the result of a query was. It also helps you answer more interesting questions in data analytics as you can compare two points in time in a single query all in your existing data warehouse.</p><h2>Compliance focused</h2><p>Your data belongs with you. Statetrace is designed to be run on-prem, leaving you in complete control of your data. Whether you are running a HIPAA deployment or need to stay SOC 2 compliant, Statetrace works with your compliance team to succeed.</p><h2>Statetrace Core</h2><p>Users can try <a href="/docs/intro">Statetrace Core</a> today for free. Its a limited edition of statetrace without a UI, but with all of the power. Try it out locally to quickly connect your database and start scanning within minutes.</p><h2>Statetrace Enterprise</h2><p>Our flagship product is <a href="https://www.statetrace.com">Statetrace for Enterprise</a>. Its the full featured Statetrace experience with a robust UI, enterprise level user permissions, pre-constructed SQL models for time-travel and support from our customer success team.</p><h2>The future</h2><p>We are developing the highest quality auditing experience. If what we are doing sounds interesting, reach out at <a href="mailto:hello@statetrace.com">hello@statetrace.com</a> and we would love to tell you about what we are working on.</p>]]></content:encoded>
         </item>
     </channel>
 </rss>

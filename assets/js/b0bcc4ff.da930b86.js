@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkstatetrace_docs=self.webpackChunkstatetrace_docs||[]).push([[786],{7044:function(e){e.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/elixir","name":"elixir","count":1,"permalink":"/blog/tags/elixir"}')}}]);
